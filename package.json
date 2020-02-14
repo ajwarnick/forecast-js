@@ -1,0 +1,16 @@
+{
+  "name": "forcast-js",
+  "version": "1.0.0",
+  "description": "Weather data using vue.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather",
+    "forecast",
+    "api"
+  ],
+  "author": "Anthony Warnick",
+  "license": "MIT"
+}
