@@ -2,6 +2,7 @@
   "name": "forcast-js",
   "version": "1.0.0",
   "description": "Weather data using vue.js",
+  "repository": "https://github.com/ajwarnick/forecast-js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
