@@ -107,3 +107,7 @@ dist
 
 # API Keys
 keys.js
+
+# Test html files
+es5.html
+index.html
