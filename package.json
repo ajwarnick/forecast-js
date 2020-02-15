@@ -6,7 +6,8 @@
   "main": "js/forecast.js",
   "module": "mjs/forecast.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass --watch scss/forecast.scss css/forecast.css"
   },
   "keywords": [
     "weather",
