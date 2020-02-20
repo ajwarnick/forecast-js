@@ -130,6 +130,18 @@ var weather = {
 		moon_phase: ""
 	},
 
+	alerts: {
+		type: "",
+		time_range: "",
+		expires: "",
+		headline: "",
+		instruction: "",
+		description: "",
+		certainty: "",
+		severity: "",
+		banner_headline: ""
+	},
+
 	hourly: [
 		{},
 		{},
@@ -193,7 +205,7 @@ function getCurrent(z) {
 			if(myJson.coord.lat !== undefined && myJson.coord.lon !== undefined){
 				getHourlyForcast( myJson.coord.lat, myJson.coord.lon );
                 getCurrentUV( myJson.coord.lat, myJson.coord.lon );
-                
+                getAlerts( myJson.coord.lat, myJson.coord.lon );
 				// destroyMap();
 				// my_initMap( myJson.coord.lat, myJson.coord.lon, 9 );
 			}
@@ -331,6 +343,42 @@ function getHourlyForcast( lat, lon ){
 		})
 		  
     });
+}
+
+function getAlerts( lat, lon ){
+	// https://api.weather.gov/alerts?active=true&point=44.45,-95.78
+	let toFetch = "https://api.weather.gov/alerts?active=true&point=" + lat + "," + lon;
+
+    fetch(toFetch)
+    .then(function(response) {
+        return response.json();
+    }).then(function(myJson) {
+		let a = myJson.features;
+		if( a.length > 0 ){
+			weather.alerts = []	
+			a.forEach(function(element) {
+				let alert = {}
+
+				alert['type'] = element.properties.event;
+				alert['time_range'] = element.properties.effective;
+				alert['expires'] = element.properties.expires;
+				alert['headline'] = element.properties.headline;
+				alert['instruction'] = element.properties.instruction;
+				alert['description'] = element.properties.description;
+				alert['certainty'] = element.properties.certainty;
+				alert['severity'] = element.properties.severity;
+				alert['banner_headline'] = element.properties.parameters.NWSheadline[0];
+
+
+				weather.alerts.push(alert);
+			});
+
+			console.log(weather.alerts);
+			
+		}
+		
+
+    })
 }
 
 

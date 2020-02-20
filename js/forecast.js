@@ -12442,7 +12442,7 @@ function getCurrent(z) {
 			if(myJson.coord.lat !== undefined && myJson.coord.lon !== undefined){
 				getHourlyForcast( myJson.coord.lat, myJson.coord.lon );
                 getCurrentUV( myJson.coord.lat, myJson.coord.lon );
-                
+                getAlerts( myJson.coord.lat, myJson.coord.lon );
 				// destroyMap();
 				// my_initMap( myJson.coord.lat, myJson.coord.lon, 9 );
 			}
@@ -12579,6 +12579,20 @@ function getHourlyForcast( lat, lon ){
 
 		});
 		  
+    });
+}
+
+function getAlerts( lat, lon ){
+	// https://api.weather.gov/alerts?active=true&point=44.45,-95.78
+	let toFetch = "https://api.weather.gov/alerts?active=true&point=" + lat + "," + lon;
+
+    fetch(toFetch)
+    .then(function(response) {
+        return response.json();
+    }).then(function(myJson) {
+		
+		console.log(myJson);
+
     });
 }
 

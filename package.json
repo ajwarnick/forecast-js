@@ -1,13 +1,14 @@
 {
-  "name": "forecast-js",
-  "version": "1.1.0",
+  "name": "@warnick/forecast-js",
+  "version": "1.2.0",
   "description": "Weather data using vue.js",
   "repository": "https://github.com/ajwarnick/forecast-js",
   "main": "js/forecast.js",
   "module": "mjs/forecast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "sass --watch scss/forecast.scss css/forecast.css"
+    "scss": "sass --watch scss/forecast.scss css/forecast.css",
+    "build": "rollup -c"
   },
   "keywords": [
     "weather",
