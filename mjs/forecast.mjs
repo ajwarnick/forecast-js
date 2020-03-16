@@ -3,7 +3,6 @@
 
 
 
-
 import { Moon } from './moon.mjs';
 //Moon.phase('2018', '01', '19');
 
@@ -25,19 +24,80 @@ import Cookies from './js.cookie.min.mjs';
 import { Warnick } from './warnick.mjs';
 
 
+
+// Importing OpenLayers 
+var load_ol = new Promise(function(resolve, reject) {
+	// do a thing, possibly async, then…
+	const oljs = document.createElement('script');
+	oljs.setAttribute('src', 'https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js');
+	oljs.onload = function(){
+		resolve("Stuff worked!"); 
+	};
+	oljs.onerror = function(){
+		reject(Error("It broke"));
+	}
+	document.head.appendChild(oljs);
+});
+  
+load_ol.then(function () { 
+	
+	map = new ol.Map({
+		target: 'map',
+		layers: [
+			new ol.layer.Tile({
+				source: new ol.source.OSM()
+			})
+		],
+		view: new ol.View({
+			center: ol.proj.transform( [37.41, 8.82] , 'EPSG:4326', 'EPSG:3857'),
+			zoom: 9
+		})
+	});
+
+	var layer_cloud = new ol.layer.Tile({
+		source: new ol.source.XYZ({
+			// Replace this URL with a URL you generate. To generate an ID go to http://home.openweathermap.org/
+			// and click "map editor" in the top right corner. Make sure you're registered!
+			url: "https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid="+Keys.openweathermap
+		})
+	});
+	var layer_precipitation = new ol.layer.Tile({
+		source: new ol.source.XYZ({
+			// Replace this URL with a URL you generate. To generate an ID go to http://home.openweathermap.org/
+			// and click "map editor" in the top right corner. Make sure you're registered!
+			url: "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid="+Keys.openweathermap
+		})
+	});
+	map.addLayer(layer_cloud);
+	// map.addLayer(layer_precipitation);
+	
+}).catch(function () { 
+	console.log('OpenLayer Error'); 
+}); 
+
+
+window.boom = function(){
+	console.log("BOOM!");
+	map.getView().setCenter(ol.proj.transform([0, 0], 'EPSG:4326', 'EPSG:3857'));
+    map.getView().setZoom(5);
+}
+
+
+
+
+
 /* ZIP CODE VARIABLE */
 let zip;
-
-
-
+let map; 
 
 
 window.onload = function() {
-    Warnick.init();
-    console.log("URL: " + Ute.getURLparam('zip'));
-    console.log("Cookie: " + Cookies.get('zip'));
 
+    Warnick.init();
+    
     if( Ute.getURLparam('zip') ){
+		console.log("URL: " + Ute.getURLparam('zip'));
+
         if( Zip.zipTest( Ute.getURLparam('zip') ) ){
             zip = Ute.getURLparam('zip');
             //set cookie
@@ -48,6 +108,8 @@ window.onload = function() {
     }
 
     if( Cookies.get('zip') && !zip){
+		console.log("Cookie: " + Cookies.get('zip'));
+
         if( Zip.zipTest( Cookies.get('zip') ) ){
             zip = Cookies.get('zip');
             getCurrent(zip);
@@ -55,7 +117,12 @@ window.onload = function() {
             getForecast(zip);
         }
     }
-    
+	
+	if( zip ){
+		// console.log("Timezone: " + Zip.timezone( zip ) );
+		weather.time.timezone = Zip.timezone( zip );
+	}
+	
     // let temp_z = getURLvars();
 	// if(temp_z){
 	// 	zip = temp_z
@@ -93,7 +160,8 @@ var weather = {
 		minute:"",
 		seconds:"",
 		ampm:"",
-		moom: ""
+		moom: "",
+		timezone: ""
 	},
 	
 	current: {
@@ -174,7 +242,12 @@ var timerID = setInterval(updateTime, 1000);
 updateTime();
 function updateTime() {
     let week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+	// old version based on the computer time
 	let cd = new Date();
+	// new version based on zipcode provided
+	// let cd = new Date().toLocaleString("en-US", {timeZone: Zip.timezone( zip )});
+
+
 	weather.time.day = week[cd.getDay()];
 	weather.time.ampm = weather.time.hour >= 12 ? 'am' : 'pm';
 	weather.time.hour_24 = Ute.zeroPadding(cd.getHours(), 2);
@@ -205,7 +278,8 @@ function getCurrent(z) {
 			if(myJson.coord.lat !== undefined && myJson.coord.lon !== undefined){
 				getHourlyForcast( myJson.coord.lat, myJson.coord.lon );
                 getCurrentUV( myJson.coord.lat, myJson.coord.lon );
-                getAlerts( myJson.coord.lat, myJson.coord.lon );
+				getAlerts( myJson.coord.lat, myJson.coord.lon );
+				updateMap( myJson.coord.lat, myJson.coord.lon );
 				// destroyMap();
 				// my_initMap( myJson.coord.lat, myJson.coord.lon, 9 );
 			}
@@ -318,31 +392,28 @@ function mapForecastResultsToState(j) {
 
 
 function getHourlyForcast( lat, lon ){
-	let toFetch = "https://api.weather.gov/points/" + lat + "," + lon;
-
-    fetch(toFetch)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(myJson) {
-        let nws = myJson;
-        let grid = {x: nws.properties.gridX, y: nws.properties.gridY};
-        return grid; 
-    }).then(function(grid){
-        let gridFetch = "https://api.weather.gov/gridpoints/TOP/"+grid.x+","+grid.y+"/forecast/hourly"
-        fetch(gridFetch).then(function(response) {
-            return response.json();
-        })
-        .then(function(myJson) {
-			weather.hourly = myJson.properties.periods;
-			weather.hourly.forEach(function(element) {
-				var d = new Date(element.startTime);
-				element['time'] = Ute.formatDate(d, "h:mmtt");
-			  });
-
+	// let toFetch = "https://api.weather.gov/points/" + lat + "," + lon;
+	let toFetch = "https://api.weather.gov/points/" + lat + "," + lon + "/forecast/hourly";
+	let gridURL = fetch(toFetch)
+		.then(function(response) {
+			return response.url;
 		})
-		  
-    });
+		.then(function(url){
+			return fetch(url);
+		}).then(function(response) {
+			return response.json();
+		})
+		.catch(function(error) {
+			console.log('Request failed', error)
+		})
+
+	gridURL.then(function(r) {
+		weather.hourly = r.properties.periods;
+		weather.hourly.forEach(function(element) {
+			var d = new Date(element.startTime);
+			element['time'] = Ute.formatDate(d, "h:mmtt");
+		});
+	});
 }
 
 function getAlerts( lat, lon ){
@@ -369,18 +440,16 @@ function getAlerts( lat, lon ){
 				alert['severity'] = element.properties.severity;
 				alert['banner_headline'] = element.properties.parameters.NWSheadline[0];
 
-
 				weather.alerts.push(alert);
-			});
-
-			console.log(weather.alerts);
-			
+			});	
 		}
-		
-
     })
 }
 
+function updateMap( lat, lon ){
+	map.getView().setCenter(ol.proj.transform([lon, lat], 'EPSG:4326', 'EPSG:3857'));
+    map.getView().setZoom(9);
+}
 
 function getCurrentUV( lat, lon ){
 	let toFetch = "http://api.openweathermap.org/data/2.5/uvi?appid=" + Keys.openweathermap + "&lat=" + lat + "&lon=" + lon;

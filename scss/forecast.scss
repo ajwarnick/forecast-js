@@ -1,18 +1,29 @@
-body{
-    padding: 0;
-    margin: 0;
-}
+@import "../node_modules/ol/ol.css";
 
-img{
-    display:block;
-    max-width: 100%;
-    height: auto;
-}
+// body{
+//     padding: 0;
+//     margin: 0;
+// }
 
-a{
-    text-decoration: none;
-}
+// img{
+//     display:block;
+//     max-width: 100%;
+//     height: auto;
+// }
 
-a:hover{
-    text-decoration: underline;
+// a{
+//     text-decoration: none;
+// }
+
+// a:hover{
+//     text-decoration: underline;
+// }
+
+.map {
+    height: 500px;
+    width: 500px;
+  }
+
+.ol-attribution.ol-uncollapsible{
+    display: none;
 }

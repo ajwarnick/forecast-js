@@ -1,18 +1,11 @@
-body {
-  padding: 0;
-  margin: 0;
+@import "../node_modules/ol/ol.css";
+.map {
+  height: 500px;
+  width: 500px;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.ol-attribution.ol-uncollapsible {
+  display: none;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+/*# sourceMappingURL=forecast.css.map */
