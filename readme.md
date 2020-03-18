@@ -1,3 +1,5 @@
+![forecast.js logo](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/logo/logo@2x.png)
+
 ## Features
 
 A small weather app using data from the [National Weather Service (NWS)](https://www.weather.gov), [OpenWeatherMap](https://openweathermap.org), and [Weatherbit](https://www.weatherbit.io).
