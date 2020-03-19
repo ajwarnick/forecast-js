@@ -54,6 +54,8 @@ In the body of your HTML, everything should be within a `<div class="results" id
 </body>
 ```
 
+
+
 ### Installing
 
 ### Weather Object
@@ -61,6 +63,20 @@ In the body of your HTML, everything should be within a `<div class="results" id
 
 
 #### Icons
+
+The following icons are based on the codes and descriptions used by [OpenWeatherMap](https://openweathermap.org/weather-conditions). 
+
+| Icon                                                         | Code | Description      |
+| ------------------------------------------------------------ | ---- | ---------------- |
+| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/01d@2x.png) | 01n  | clear sky        |
+| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/02d@2x.png) | 02n  | few clouds       |
+| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/03n@2x.png) | 03n  | scattered clouds |
+| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/04n@2x.png) | 04n  | broken clouds    |
+| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/09n@2x.png) | 09n  | shower rain      |
+| ![rain icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/10n@2x.png) | 10n  | rain             |
+| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/11n@2x.png) | 11n  | thunderstorm     |
+| ![snow icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/13n@2x.png) | 13n  | snow             |
+| ![mist icon](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/img/50n@2x.png) | 50n  | mist             |
 
 
 
@@ -78,14 +94,6 @@ Use the [NPM](https://www.npmjs.com) package manager to install [forecast-js](ht
 npm install --save @warnick/forecast-js
 ```
 
-##### Include JS
-
-Now you can include the modules in your JS or SCSS
-
-```javascript
-
-```
-
 
 
 #### Using UNPKG
@@ -99,9 +107,13 @@ Simply, include the CDN links in the head of your HTML
 
 
 
-
-
 ## Changelog
+
+#### [1.5.0] - 2020-03-18
+
+##### Added
+
+Updated Readme
 
 #### [1.4.0] - 2020-03-15
 
@@ -117,15 +129,13 @@ Expired dependancies
 
 
 
-
-
-
-
 ## Contributors 
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 - [Anthony Warnick](https://github.com/ajwarnick)
+
+
 
 ## License
 
