@@ -82,6 +82,13 @@ The following icons are based on the codes and descriptions used by [OpenWeather
 
 ### Exemples 
 
+Full exmaple
+
+https://codesandbox.io/s/forecast-js-example-959xr
+
+Display Icon
+
+Forecast
 
 
 ### Download & Installation
