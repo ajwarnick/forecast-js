@@ -1,4 +1,4 @@
-# ![forecast.js logo](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/logo/logo@2x.png)
+# ![forecast.js logo](https://raw.githubusercontent.com/ajwarnick/forecast-js/master/logo/logo.png)
 
 ## Features
 
@@ -68,15 +68,15 @@ The following icons are based on the codes and descriptions used by [OpenWeather
 
 | Icon                                                         | Code | Description      |
 | ------------------------------------------------------------ | ---- | ---------------- |
-| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/01d@2x.png) | 01n  | clear sky        |
-| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/02d@2x.png) | 02n  | few clouds       |
-| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/03n@2x.png) | 03n  | scattered clouds |
-| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/04n@2x.png) | 04n  | broken clouds    |
-| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/09n@2x.png) | 09n  | shower rain      |
-| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/10n@2x.png) | 10n  | rain             |
-| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/11n@2x.png) | 11n  | thunderstorm     |
-| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/13n@2x.png) | 13n  | snow             |
-| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/50n@2x.png) | 50n  | mist             |
+| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/01d.png) | 01n  | clear sky        |
+| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/02d.png) | 02n  | few clouds       |
+| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/03d.png) | 03n  | scattered clouds |
+| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/04d.png) | 04n  | broken clouds    |
+| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/09d.png) | 09n  | shower rain      |
+| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/10d.png) | 10n  | rain             |
+| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/11d.png) | 11n  | thunderstorm     |
+| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/13d.png) | 13n  | snow             |
+| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/50d.png) | 50n  | mist             |
 
 
 
