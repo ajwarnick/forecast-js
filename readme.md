@@ -61,7 +61,7 @@ In the body of your HTML, everything should be within a `<div class="results" id
 To trigger the fetching of data you will need to use the input for ZIP code. 
 
 ```html
-
+<input placeholder="Enter Your ZIP Code"  v-on:input="zip_trigger" name="name" id="zip" />
 ```
 
 
@@ -145,7 +145,7 @@ Forecast
 
 Updated Readme
 
-### Changed
+##### Changed
 
 Fixed Mixed content (http/https) 
 
