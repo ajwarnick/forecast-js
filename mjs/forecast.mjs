@@ -452,7 +452,7 @@ function updateMap( lat, lon ){
 }
 
 function getCurrentUV( lat, lon ){
-	let toFetch = "http://api.openweathermap.org/data/2.5/uvi?appid=" + Keys.openweathermap + "&lat=" + lat + "&lon=" + lon;
+	let toFetch = "https://api.openweathermap.org/data/2.5/uvi?appid=" + Keys.openweathermap + "&lat=" + lat + "&lon=" + lon;
 
 	fetch(toFetch)
     .then(function(response) {

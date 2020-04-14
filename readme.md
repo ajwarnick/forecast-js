@@ -56,11 +56,56 @@ In the body of your HTML, everything should be within a `<div class="results" id
 
 
 
-### Installing
+##### Fourth (ZIP Code)
+
+To trigger the fetching of data you will need to use the input for ZIP code. 
+
+```html
+
+```
+
+
+
+
+
+### Download & Installation
+
+#### Using NPM
+
+Use the [NPM](https://www.npmjs.com) package manager to install [forecast-js](https://www.npmjs.com/package/@warnick/forecast-js). For ----
+
+```bash
+npm install --save @warnick/forecast-js
+```
+
+
+
+#### Using UNPKG
+
+Simply, include the CDN links in the head of your HTML. (See above for typical use).
+
+```html
+<script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
+```
+
+
 
 ### Weather Object
 
+#### Variables
 
+There are six main categories of information: location, time, alerts, current, hourly, and forecast. Within each of these there are a myriad of pieces of data you can implement into your application. 
+
+
+
+#### Location
+
+This is based on the zip
+
+
+
+ 
 
 #### Icons
 
@@ -91,28 +136,6 @@ Display Icon
 Forecast
 
 
-### Download & Installation
-
-#### Using NPM
-
-Use the [NPM](https://www.npmjs.com) package manager to install [forecast-js](https://www.npmjs.com/package/@warnick/forecast-js).
-
-```bash
-npm install --save @warnick/forecast-js
-```
-
-
-
-#### Using UNPKG
-
-Simply, include the CDN links in the head of your HTML
-
-```html
-<script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
-<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
-```
-
-
 
 ## Changelog
 
@@ -121,6 +144,11 @@ Simply, include the CDN links in the head of your HTML
 ##### Added
 
 Updated Readme
+
+### Changed
+
+Fixed Mixed content (http/https) 
+
 
 #### [1.4.0] - 2020-03-15
 
