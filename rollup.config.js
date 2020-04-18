@@ -1,5 +1,5 @@
 import { terser } from "rollup-plugin-terser";
-
+                
 export default {
     input: 'mjs/forecast.mjs',
     output: [

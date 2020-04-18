@@ -139,6 +139,12 @@ Forecast
 
 ## Changelog
 
+#### [1.6.0] - 2020-03-18
+
+##### Changed
+
+Time is now localized to the time at the zip code 
+
 #### [1.5.0] - 2020-03-18
 
 ##### Added

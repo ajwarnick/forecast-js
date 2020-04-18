@@ -21,6 +21,7 @@ const Zip = {
     },
 
     timezone: function(z){
+        console.log(z);
         let TIMEZONE_MAP = Object.freeze ({
             0: "America/New_York",
             1: "America/Chicago",
@@ -57,6 +58,21 @@ const Zip = {
         }
         return null;
 
+    },
+
+    getTimezoneOffset: function(tz) {
+        let hereDate = new Date(Date.now());
+        hereDate.setMilliseconds(0); // for nice rounding
+    
+        const
+        hereOffsetHrs = hereDate.getTimezoneOffset() / 60 * -1,
+        thereLocaleStr = hereDate.toLocaleString('en-US', {timeZone: tz}),
+        thereDate = new Date(thereLocaleStr),
+        diffHrs = (thereDate.getTime() - hereDate.getTime()) / 1000 / 60 / 60,
+        thereOffsetHrs = hereOffsetHrs + diffHrs;
+    
+        // console.log(tz, thereDate, 'UTC'+(thereOffsetHrs < 0 ? '' : '+')+thereOffsetHrs);
+        return thereOffsetHrs;
     }
 }
 
