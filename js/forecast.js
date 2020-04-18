@@ -42183,6 +42183,7 @@ const Zip = {
     },
 
     timezone: function(z){
+        console.log(z);
         let TIMEZONE_MAP = Object.freeze ({
             0: "America/New_York",
             1: "America/Chicago",
@@ -42219,6 +42220,21 @@ const Zip = {
         }
         return null;
 
+    },
+
+    getTimezoneOffset: function(tz) {
+        let hereDate = new Date(Date.now());
+        hereDate.setMilliseconds(0); // for nice rounding
+    
+        const
+        hereOffsetHrs = hereDate.getTimezoneOffset() / 60 * -1,
+        thereLocaleStr = hereDate.toLocaleString('en-US', {timeZone: tz}),
+        thereDate = new Date(thereLocaleStr),
+        diffHrs = (thereDate.getTime() - hereDate.getTime()) / 1000 / 60 / 60,
+        thereOffsetHrs = hereOffsetHrs + diffHrs;
+    
+        // console.log(tz, thereDate, 'UTC'+(thereOffsetHrs < 0 ? '' : '+')+thereOffsetHrs);
+        return thereOffsetHrs;
     }
 };
 
@@ -54497,11 +54513,15 @@ var timerID = setInterval(updateTime, 1000);
 updateTime();
 function updateTime() {
     let week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-	// old version based on the computer time
-	let cd = new Date();
-	// new version based on zipcode provided
-	// let cd = new Date().toLocaleString("en-US", {timeZone: Zip.timezone( zip )});
+	let cd;
 
+	if(weather.time.timezone){
+		let offset = Zip.getTimezoneOffset(weather.time.timezone);
+		cd = new Date();
+		cd.setTime(cd.getTime() + cd.getTimezoneOffset() * 60 * 1000 /* convert to UTC */ + (/* UTC+Offset */ offset) * 60 * 60 * 1000);
+	}else {
+		cd = new Date();
+	}
 
 	weather.time.day = week[cd.getDay()];
 	weather.time.ampm = weather.time.hour >= 12 ? 'am' : 'pm';
@@ -54730,7 +54750,8 @@ var vm = new Vue({
 
             if( Zip.zipTest(el.target.value) ){
                 document.getElementById('zip').blur();
-                zip = Zip.zipTest(el.target.value);
+				zip = Zip.zipTest(el.target.value);
+				weather.time.timezone = Zip.timezone( zip );
                 r.set('zip', zip);
 
                 getCurrent(zip);
