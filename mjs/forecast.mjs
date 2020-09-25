@@ -421,6 +421,7 @@ function getHourlyForcast( lat, lon ){
 }
 
 function getAlerts( lat, lon ){
+	https://api.weather.gov/points/44.45,-95.78
 	// https://api.weather.gov/alerts?active=true&point=44.45,-95.78
 	let toFetch = "https://api.weather.gov/alerts?active=true&point=" + lat + "," + lon;
 
