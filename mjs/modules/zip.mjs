@@ -1,4 +1,5 @@
 import {zipcodes} from './zipcodes.mjs';
+import { Ute } from "./ute.mjs";
 
 const Zip = {
     zipTest: function(v) {
@@ -15,13 +16,37 @@ const Zip = {
         }
     },
 
-    myzip: function(v){
-        console.log(v);
-        // this.zipTest();
+    getCityAndState: function(zip){
+        const removeExtraSpaces = string => string.trim().replace(/\s{2,}/g, "");
+        const USPS_ID = "254KANSA7569";
+
+        let xml = `
+                <CityStateLookupRequest USERID="${USPS_ID}">
+                <ZipCode ID="0">
+                    <Zip5>${zip}</Zip5>
+                </ZipCode>
+                </CityStateLookupRequest>
+            `;
+        
+        let sending = removeExtraSpaces(xml)
+ 
+        
+        return fetch("https://secure.shippingapis.com/ShippingAPI.dll?API=CityStateLookup&XML="+sending)
+            .then(response => response.text())
+            .then(str => {
+                let xmlDoc = (new window.DOMParser()).parseFromString(str, "text/xml");
+
+                let city = Ute.titleCase(xmlDoc.getElementsByTagName("City")[0].innerHTML);
+                let state = xmlDoc.getElementsByTagName("State")[0].innerHTML;
+                
+                return {city, state};   
+            })
+            
+
     },
 
     timezone: function(z){
-        console.log(z);
+        // console.log(z);
         let TIMEZONE_MAP = Object.freeze ({
             0: "America/New_York",
             1: "America/Chicago",
