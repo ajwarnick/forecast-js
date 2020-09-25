@@ -2,71 +2,15 @@
 
 ## Features
 
-A small weather app using data from the [National Weather Service (NWS)](https://www.weather.gov), [OpenWeatherMap](https://openweathermap.org), and [Weatherbit](https://www.weatherbit.io).
+A small weather app using data from the [National Weather Service (NWS)](https://www.weather.gov)
 
 ## Description 
 
-Using Vue for data binding this app provides both current data, forecast predictions, and weather map for a ZIP code in the United States. For your application to work properly you will need to sign-up and get an API key for [OpenWeatherMap](https://openweathermap.org/api) and [Weatherbit](https://www.weatherbit.io/api). For Both of these services the library relies on the free level of API use. If your app become popular and you are making more than the allowed calls per day you will need to pay for each of these services. 
-
-This library is markup agnostic and simply provides an object you can inject into your design. 
+Using Vue for data binding this app provides both current data, forecast predictions, and weather map for a ZIP code in the United States. The data is obtained from the [National Weather Service (NWS)](https://www.weather.gov) which is supported through federal taxes dollars. This library is markup agnostic and simply provides an object you can inject into your design. 
 
 
 
 ## Usage
-
-### Prerequisite 
-
-Before you begin there are a few things you need.
-
-##### First (API Keys)
-
-Create a file in the root of your application called `keys.js` this file should contain your API keys:
-
-```javascript
-var Keys = {
-    openweathermap: "--------------------------------",
-    weatherbit: "--------------------------------"
-}
-```
-
-Replace the ----------- with your key for each of the services. And make sure `Keys` is capitalized. 
-
-##### Second (Load JS)
-
-Import the library into the head of your `index.html` file. 
-
-```html
-<script src="keys.js"></script>
-<script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
-<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
-<link rel="stylesheet" href="/style.css">
-```
-
-##### Third (HTML Necessities)
-
-In the body of your HTML, everything should be within a `<div class="results" id="app">`
-
-```html
-<body>
-  <div class="results" id="app">
-    
-  </div>
-</body>
-```
-
-
-
-##### Fourth (ZIP Code)
-
-To trigger the fetching of data you will need to use the input for ZIP code. 
-
-```html
-<input placeholder="Enter Your ZIP Code"  v-on:input="zip_trigger" name="name" id="zip" />
-```
-
-
-
-
 
 ### Download & Installation
 
@@ -89,6 +33,40 @@ Simply, include the CDN links in the head of your HTML. (See above for typical u
 <link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
 ```
 
+### Prerequisite 
+
+Before you begin there are a few things you need.
+
+##### First  (Load JS)
+
+Import the library into the head of your `index.html` file. 
+
+```html
+<script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
+<link rel="stylesheet" href="/style.css">
+```
+
+##### Second (HTML Necessities)
+
+In the body of your HTML, everything should be within a `<div class="results" id="app">`
+
+```html
+<body>
+  <div class="results" id="app">
+    
+  </div>
+</body>
+```
+
+##### Third (ZIP Code)
+
+To trigger the fetching of data you will need to use the input for ZIP code. 
+
+```html
+<input placeholder="Enter Your ZIP Code"  v-on:input="zip_trigger" name="name" id="zip" />
+```
+
 
 
 ### Weather Object
@@ -101,27 +79,101 @@ There are six main categories of information: location, time, alerts, current, h
 
 #### Location
 
-This is based on the zip
+This is based on the Zip Code entered in the input or retrieved from a browser cookie. This object contains: 
 
 
-
- 
 
 #### Icons
 
-The following icons are based on the codes and descriptions used by [OpenWeatherMap](https://openweathermap.org/weather-conditions). 
 
-| Icon                                                         | Code | Description      |
-| ------------------------------------------------------------ | ---- | ---------------- |
-| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/01d.png) | 01n  | clear sky        |
-| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/02d.png) | 02n  | few clouds       |
-| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/03d.png) | 03n  | scattered clouds |
-| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/04d.png) | 04n  | broken clouds    |
-| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/09d.png) | 09n  | shower rain      |
-| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/10d.png) | 10n  | rain             |
-| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/11d.png) | 11n  | thunderstorm     |
-| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/13d.png) | 13n  | snow             |
-| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/50d.png) | 50n  | mist             |
+
+| Icon                                                         | Code         | Description                  |
+| ------------------------------------------------------------ | ------------ | ---------------------------- |
+| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/01d.png) | skc          | Clear Sky                    |
+| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/02d.png) | few          | Few Clouds                   |
+| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/03d.png) | sct          | Scattered Clouds             |
+| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/04d.png) | bkn          | Broken Clouds                |
+| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/09d.png) | rain_showers | Rain Showers                 |
+| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/10d.png) | rain         | Rain                         |
+| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/11d.png) | tsra         | Thunderstorm                 |
+| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/13d.png) | snow         | Snow                         |
+| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/50d.png) | fog          | Fog, Haze, <br />Smoke, Dust |
+
+##### Complex Icons
+
+
+
+###### Clear Sky / Sunny
+
+| Icon Code | Description          |
+| --------- | -------------------- |
+| skc       | Fair/clear           |
+| wind_skc  | Fair/clear and windy |
+| hot       | Hot                  |
+
+
+
+###### Clouds
+
+| Icon Code | Description             |
+| --------- | ----------------------- |
+| few       | A few clouds            |
+| sct       | Partly cloudy           |
+| bkn       | Mostly cloudy           |
+| ovc       | Overcast                |
+| wind_few  | A few clouds and windy  |
+| wind_sct  | Partly cloudy and windy |
+| wind_bkn  | Mostly cloudy and windy |
+| wind_ovc  | Overcast and windy      |
+
+###### Rain
+
+| Icon Code       | Description                     |
+| --------------- | ------------------------------- |
+| rain            | Rain                            |
+| rain_showers_hi | Rain showers (high cloud cover) |
+| rain_showers    | Rain showers (low cloud cover)  |
+
+
+
+###### Thunderstorm
+
+| Icon Code      | Description                       |
+| -------------- | --------------------------------- |
+| tsra           | Thunderstorm (high cloud cover)   |
+| tsra_sct       | Thunderstorm (medium cloud cover) |
+| tsra_hi        | Thunderstorm (low cloud cover)    |
+| tornado        | Tornado                           |
+| hurricane      | Hurricane conditions              |
+| tropical_storm | Tropical storm conditions         |
+
+
+
+###### Snow
+
+| Icon Code  | Description        |
+| ---------- | ------------------ |
+| snow       | Snow               |
+| rain_snow  | Rain/snow          |
+| rain_sleet | Rain/sleet         |
+| snow_sleet | Snow/sleet         |
+| fzra       | Freezing rain      |
+| rain_fzra  | Rain/freezing rain |
+| snow_fzra  | Freezing rain/snow |
+| sleet      | Sleet              |
+| blizzard   | Blizzard           |
+| cold       | Cold               |
+
+
+
+###### Fog/Haze/Smoke
+
+| Icon Code | Description |
+| --------- | ----------- |
+| fog       | Fog/mist    |
+| haze      | Haze        |
+| smoke     | Smoke       |
+| dust      | Dust        |
 
 
 
@@ -129,16 +181,39 @@ The following icons are based on the codes and descriptions used by [OpenWeather
 
 Full exmaple
 
-hhttps://codesandbox.io/s/forecast-js-example-v161-959xr
+https://codesandbox.io/s/forecast-js-example-959xr
 
 Display Icon
 
-https://codesandbox.io/s/forecast-js-images-v161-wyq3w
-
+Forecast
 
 
 
 ## Changelog
+
+#### [2.0.0] - 2020-09-19
+
+##### Changed
+
+Shifted all data to NWS
+
+##### Removed 
+
+ [OpenWeatherMap](https://openweathermap.org/api) and [Weatherbit](https://www.weatherbit.io/api) data 
+
+Removed map and moved it to version 3
+
+##### Depricated 
+
+current.uv [Hopefully will return in v3]
+cuurrent.air_quality [Hopefully will return in v3]
+forecast[i].wind_cdir_full
+forecast[i].dewpt   
+forecast[i].vis
+forecast[i].pop
+forecast[i].precip
+forecast[i].snow
+forecast[i].pres
 
 #### [1.6.0] - 2020-03-18
 
@@ -168,6 +243,25 @@ Working map using [OpenLayers](https://openlayers.org)
 ##### Removed
 
 Expired dependancies 
+
+
+
+## TODO
+
+#### v2
+
+- have students set default Zip Code and fill it to their id 
+- ~~get more info from NOA~~ 
+- Solution for matching multiple icons
+- Set User-Agent: (myweatherapp.com, contact@myweatherapp.com)
+- Add https://www.airnow.gov/?city=Manhattan&state=KS&country=USA
+- Fix day shift sunrise sunset
+
+#### v3 
+
+- Add other types of search 
+- Add map back in 
+- get mothods written by students and add those dynamically to the vue methods 
 
 
 

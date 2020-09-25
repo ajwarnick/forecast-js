@@ -1,4 +1,6 @@
-@import "../node_modules/ol/ol";
+// @import "../node_modules/ol/ol";
+@import "iconsBase64";
+
 
 // body{
 //     padding: 0;
@@ -19,11 +21,11 @@
 //     text-decoration: underline;
 // }
 
-.map {
-    height: 500px;
-    width: 500px;
-  }
+// .map {
+//     height: 500px;
+//     width: 500px;
+//   }
 
-.ol-attribution.ol-uncollapsible{
-    display: none;
-}
+// .ol-attribution.ol-uncollapsible{
+//     display: none;
+// }
