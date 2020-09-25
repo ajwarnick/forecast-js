@@ -129,11 +129,12 @@ The following icons are based on the codes and descriptions used by [OpenWeather
 
 Full exmaple
 
-https://codesandbox.io/s/forecast-js-example-959xr
+hhttps://codesandbox.io/s/forecast-js-example-v161-959xr
 
 Display Icon
 
-Forecast
+https://codesandbox.io/s/forecast-js-images-v161-wyq3w
+
 
 
 
