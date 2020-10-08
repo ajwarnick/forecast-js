@@ -179,13 +179,13 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ### Exemples 
 
-Full exmaple
+###### [Full exmaple](https://codesandbox.io/s/forecast-js-example-v201-in96t)
 
-https://codesandbox.io/s/forecast-js-example-959xr
+###### [Current Temp](https://codesandbox.io/s/forecast-js-temp-v201-8bts7)
 
-Display Icon
+###### [Display Icon](https://codesandbox.io/s/forecast-js-images-v201-wg57e)
 
-Forecast
+###### [Forecast](https://codesandbox.io/s/forecast-js-temp-v201-8bts7)
 
 ## Changelog
 

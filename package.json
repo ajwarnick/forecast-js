@@ -8,7 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "sass --watch scss/forecast.scss dist/css/forecast.css",
-    "scssMin": "sass scss/forecast.scss:dist/css/forecas.min.css --style compressed",
+    "scssMin": "sass scss/forecast.scss:dist/css/forecast.min.css --style compressed",
     "jsMin": "rollup -c",
     "build": "npm run scssMin | npm run jsMin"
   },
