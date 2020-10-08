@@ -11,6 +11,8 @@ import Cookies from './modules/js.cookie.min.mjs';
 import { zipApi } from "./modules/zipapi.mjs";
 /* VUE GETS BUDLED IN */
 import Vue from '../node_modules/vue/dist/vue.esm.browser.min.js';
+// const app = document.getElementById("app");
+
 
 /* DEBUG SETTING */
 let debug = false;
@@ -215,6 +217,7 @@ function doit(){
 			return v;
 		})
 		.then((v) => {
+			
 			/* WEATHER RETRIEVAL AND PARSING FUNCTIONS */
 
 			// let week = weekly.get("FSD", 128, 105);
@@ -262,6 +265,9 @@ function doit(){
 			// 		(debug) && (console.log("Current: " + value));
 			// 		weather.current = value
 			// 	});
+
+			// Removes the loading class once the data has been added
+			document.getElementById("app").classList.remove("loading");
 		});
 }
 
@@ -320,7 +326,8 @@ var vm = new Vue({
 				zip = Zip.zipTest(el.target.value);
 				weather.time.timezone = Zip.timezone( zip );
 				Cookies.set('zip', zip);
-
+				
+				document.getElementById("app").classList.add("loading");
 				doit();
             }
 			
