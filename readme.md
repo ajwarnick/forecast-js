@@ -29,8 +29,8 @@ npm install --save @warnick/forecast-js
 Simply, include the CDN links in the head of your HTML. (See above for typical use).
 
 ```html
-<script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
-<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
+<script src="https://unpkg.com/@warnick/forecast-js/dist/js/forecast.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/dist/css/forecast.css">
 ```
 
 ### Prerequisite 
@@ -42,8 +42,8 @@ Before you begin there are a few things you need.
 Import the library into the head of your `index.html` file. 
 
 ```html
-<script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
-<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
+<script src="https://unpkg.com/@warnick/forecast-js/dist/js/forecast.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/dist/css/forecast.css">
 <link rel="stylesheet" href="/style.css">
 ```
 
