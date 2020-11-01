@@ -9,6 +9,8 @@ import { Zip } from "./modules/zip.mjs";
 import { Moon } from "./modules/moon.mjs";
 import Cookies from './modules/js.cookie.min.mjs';
 import { zipApi } from "./modules/zipapi.mjs";
+import { uvApi } from "./modules/uv.mjs";
+import { airApi } from "./modules/air.mjs";
 /* VUE GETS BUDLED IN */
 import Vue from '../node_modules/vue/dist/vue.esm.browser.min.js';
 // const app = document.getElementById("app");
@@ -257,8 +259,12 @@ function doit(){
 					if(value){
 						(debug) && (console.log("Current: " + value));
 						weather.current = value
+						return true;
 					}
-				});
+				})
+				.then(
+					console.log("hit");
+				);
 
 			// Current.get(Gridpoints.radarStation)
 			// 	.then((value) => {
