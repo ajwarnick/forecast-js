@@ -189,6 +189,13 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
+#### [2.0.3] - 2020-11-04
+
+##### Added
+
+weather.current.uv - UV index from the EPA's Envirofacts Data Service API  
+weather.current.air_quality - Air quality information from EPA's airnow.gov   
+
 #### [2.0.0] - 2020-09-19
 
 ##### Changed
@@ -205,13 +212,13 @@ Removed map and moved it to version 3
 
 current.uv [Hopefully will return in v3]
 cuurrent.air_quality [Hopefully will return in v3]
-forecast[i].wind_cdir_full
-forecast[i].dewpt   
-forecast[i].vis
-forecast[i].pop
-forecast[i].precip
-forecast[i].snow
-forecast[i].pres
+forecast[i].wind_cdir_full  
+forecast[i].dewpt  
+forecast[i].vis  
+forecast[i].pop  
+forecast[i].precip  
+forecast[i].snow  
+forecast[i].pres   
 
 #### [1.6.0] - 2020-03-18
 

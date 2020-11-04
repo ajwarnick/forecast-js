@@ -262,9 +262,45 @@ function doit(){
 						return true;
 					}
 				})
-				.then(
-					console.log("hit");
-				);
+				.then((value) => {
+					uvApi.get(weather.location.zip)
+						.then((uv) => {
+							(debug) && (console.log("UV: " + uv));
+
+							const time = Ute.zeroPadding(weather.time.hour_12, 2) + " " + weather.time.ampm.toUpperCase()
+							let now = uv.find(hour => hour.DATE_TIME.includes(time));
+							return now;
+						})
+						.then((now) => {
+							weather.current.uv = now.UV_VALUE;
+						});
+					airApi.get(weather.location.zip)
+						.then((air) => {
+							(debug) && (console.log("Air Auality: " + air));
+							let types = [];
+							air.forEach( (item) => {
+								types.push({
+									name: item.ParameterName,
+									aqi: item.AQI,
+									range: item.Category.Number,
+									discription: item.Category.Name
+								});
+							})
+
+							return types;
+						})
+						.then((air) => {
+							air.sort((a, b) => (a.aqi < b.aqi) ? 1 : -1);
+							let air_quality = { 
+								name: air[0].name, 
+								aqi: air[0].aqi, 
+								range: air[0].range, 
+								discription: air[0].discription,
+								details: air 
+							}
+							weather.current.air_quality = air_quality;
+						});
+				});
 
 			// Current.get(Gridpoints.radarStation)
 			// 	.then((value) => {
