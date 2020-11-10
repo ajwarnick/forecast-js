@@ -189,7 +189,7 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
-#### [2.0.3] - 2020-11-04
+#### [2.0.4] - 2020-11-04
 
 ##### Added
 

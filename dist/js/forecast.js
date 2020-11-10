@@ -43133,6 +43133,26 @@ zipApi.get = (zip) => {
         .then(response => response.json())
 };
 
+const uvApi = {
+    url: "https://zipapi.warnick.vercel.app/api/uv/"
+    // url: "http://localhost:3000/api/uv/"
+};
+
+uvApi.get = (zip) => {
+    return fetch(uvApi.url + zip )
+        .then(response => response.json())
+};
+
+const airApi = {
+    url: "https://zipapi.warnick.vercel.app/api/air/"
+    // url: "http://localhost:3000/api/air/"
+};
+
+airApi.get = (zip) => {
+    return fetch(airApi.url + zip )
+        .then(response => response.json())
+};
+
 /*!
  * Vue.js v2.6.11
  * (c) 2014-2019 Evan You
@@ -43377,7 +43397,45 @@ function doit(){
 				.then((value) => {
 					if(value){
 						weather.current = value;
+						return true;
 					}
+				})
+				.then((value) => {
+					uvApi.get(weather.location.zip)
+						.then((uv) => {
+
+							const time = Ute.zeroPadding(weather.time.hour_12, 2) + " " + weather.time.ampm.toUpperCase();
+							let now = uv.find(hour => hour.DATE_TIME.includes(time));
+							return now;
+						})
+						.then((now) => {
+							weather.current.uv = now.UV_VALUE;
+						});
+					airApi.get(weather.location.zip)
+						.then((air) => {
+							let types = [];
+							air.forEach( (item) => {
+								types.push({
+									name: item.ParameterName,
+									aqi: item.AQI,
+									range: item.Category.Number,
+									discription: item.Category.Name
+								});
+							});
+
+							return types;
+						})
+						.then((air) => {
+							air.sort((a, b) => (a.aqi < b.aqi) ? 1 : -1);
+							let air_quality = { 
+								name: air[0].name, 
+								aqi: air[0].aqi, 
+								range: air[0].range, 
+								discription: air[0].discription,
+								details: air 
+							};
+							weather.current.air_quality = air_quality;
+						});
 				});
 
 			// Current.get(Gridpoints.radarStation)
