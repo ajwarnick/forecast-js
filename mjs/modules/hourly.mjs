@@ -38,9 +38,9 @@ Hourly.makeForecast = (hours) => {
 
     hour.moon = Moon.simple(hour.year, hour.month, hour.day);
 
-    hour.time = date.getHours() % 12;
+    hour.time = date.getHours() > 12  ? date.getHours() % 12 : date.getHours() ;
     hour.time24 = date.getHours();
-    hour.ampm = hour.time24 >= 12 ? "pm" : "am";
+    hour.ampm = date.getHours() >= 12 ? "pm" : "am";
 
     hour.number = item.number;
 

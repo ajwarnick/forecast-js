@@ -77,7 +77,7 @@ Current.makeForecast = (weather, geo) => {
     hour: Ute.to12Hours(ss.getHours()),
     minute: Ute.zeroPadding(ss.getMinutes(), 2),
     seconds: Ute.zeroPadding(ss.getSeconds(), 2),
-    ampm:  Ute.to12Hours(ss.getHours()) >= 12 ? 'pm' : 'am',
+    ampm:  ss.getHours() >= 12 ? 'pm' : 'am',
     time: Ute.to12Hours(ss.getHours()) + ":" + Ute.zeroPadding(ss.getMinutes(), 2)
   }
 

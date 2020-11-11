@@ -204,14 +204,13 @@ Shifted all data to NWS
 
 ##### Removed 
 
- [OpenWeatherMap](https://openweathermap.org/api) and [Weatherbit](https://www.weatherbit.io/api) data 
-
+ [OpenWeatherMap](https://openweathermap.org/api) and [Weatherbit](https://www.weatherbit.io/api) data  
 Removed map and moved it to version 3
 
 ##### Depricated 
 
-current.uv [Hopefully will return in v3]
-cuurrent.air_quality [Hopefully will return in v3]
+current.uv [Hopefully will return in v3]  
+cuurrent.air_quality [Hopefully will return in v3]  
 forecast[i].wind_cdir_full  
 forecast[i].dewpt  
 forecast[i].vis  
@@ -253,14 +252,14 @@ Expired dependancies
 
 ## TODO
 
-#### v2
+#### v2.5
 
 - have students set default Zip Code and fill it to their id 
 - ~~get more info from NOA~~ 
 - Solution for matching multiple icons
 - Set User-Agent: (myweatherapp.com, contact@myweatherapp.com)
-- Add https://www.airnow.gov/?city=Manhattan&state=KS&country=USA
-- Fix day shift sunrise sunset
+- ~~Add https://www.airnow.gov/?city=Manhattan&state=KS&country=USA~~
+- ~~Fix day shift sunrise sunset~~
 
 #### v3 
 

@@ -72,7 +72,28 @@ var weather = {
 		pressure:"",
 		cloud_cover: "",
 		uv: "",
-		air_quality: "",
+		air_quality: {
+			name: "",
+			aqi: "",
+			range: "",
+			discription: "",
+			details: [{
+				name: "",
+				aqi: "",
+				range: "",
+				discription: ""
+			}, {
+				name: "",
+				aqi: "",
+				range: "",
+				discription: ""
+			}, {
+				name: "",
+				aqi: "",
+				range: "",
+				discription: ""
+			}]
+		},
 
 		parcipitation: {
 			rain: "",
@@ -291,14 +312,13 @@ function doit(){
 						})
 						.then((air) => {
 							air.sort((a, b) => (a.aqi < b.aqi) ? 1 : -1);
-							let air_quality = { 
-								name: air[0].name, 
-								aqi: air[0].aqi, 
-								range: air[0].range, 
-								discription: air[0].discription,
-								details: air 
-							}
-							weather.current.air_quality = air_quality;
+							let airQuality = {}
+							airQuality.name = air[0].name; 
+							airQuality.aqi = air[0].aqi;
+							airQuality.range = air[0].range;
+							airQuality.discription = air[0].discription;
+							airQuality.details = air;
+							weather.current.air_quality = airQuality;
 						});
 				});
 
@@ -333,7 +353,7 @@ function updateTime() {
 	}
 
 	weather.time.day = week[cd.getDay()];
-	weather.time.ampm = weather.time.hour >= 12 ? 'am' : 'pm';
+	weather.time.ampm = cd.getHours() >= 12 ? 'pm' : 'am';
 	weather.time.hour_24 = Ute.zeroPadding(cd.getHours(), 2);
 	weather.time.hour_12 = weather.time.hour_24 % 12;
 	weather.time.minute = Ute.zeroPadding(cd.getMinutes(), 2);
