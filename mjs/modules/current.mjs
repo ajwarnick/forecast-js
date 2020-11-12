@@ -88,13 +88,12 @@ Current.makeForecast = (weather, geo) => {
 
   // c.description_icon is now c.icon
   c.icon = icon.filter(weather.icon);
-
   // TEMP
   c.temp = {
     current: Ute.celsiusToFahrenheit(weather.temperature.value),
     // high: ,
     // low: ,
-    // feelslike: ,
+    feelslike: Ute.celsiusToFahrenheit( (weather.windChill.value) + (weather.heatIndex.value) + (weather.temperature.value)),
     heatIndex: Ute.celsiusToFahrenheit(weather.heatIndex.value),
     windChill: Ute.celsiusToFahrenheit(weather.windChill.value),
     unit: "F"

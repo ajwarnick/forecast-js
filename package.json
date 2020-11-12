@@ -1,16 +1,17 @@
 {
   "name": "@warnick/forecast-js",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Weather data using vue.js",
   "repository": "https://github.com/ajwarnick/forecast-js",
   "main": "js/forecast.js",
   "module": "mjs/forecast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "sass --watch scss/forecast.scss dist/css/forecast.css",
+    "watch": "sass --watch scss/forecast.scss dist/css/forecast.css",
+    "scss": "sass scss/forecast.scss dist/css/forecast.css",
     "scssMin": "sass scss/forecast.scss:dist/css/forecast.min.css --style compressed",
     "jsMin": "rollup -c",
-    "build": "npm run scssMin | npm run jsMin"
+    "build": "npm run scssMin | npm run scss | npm run jsMin"
   },
   "keywords": [
     "weather",
