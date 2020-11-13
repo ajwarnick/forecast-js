@@ -7,6 +7,9 @@ icon.test = () => {
 };
 
 icon.filter = (iconURL) => {
+  if(!iconURL){
+    return undefined;
+  }
   let icon;
 
   const sunny = ["skc", "wind_skc", "hot"];

@@ -72,26 +72,27 @@ var weather = {
 		pressure:"",
 		cloud_cover: "",
 		uv: "",
+
 		air_quality: {
-			name: "",
-			aqi: "",
-			range: "",
-			discription: "",
+			name:"",
+			aqi:"",
+			range:"",
+			discription:"",
 			details: [{
-				name: "",
-				aqi: "",
-				range: "",
-				discription: ""
+				name:"",
+				aqi:"",
+				range:"",
+				discription:""
 			}, {
-				name: "",
-				aqi: "",
-				range: "",
-				discription: ""
+				name:"",
+				aqi:"",
+				range:"",
+				discription:""
 			}, {
-				name: "",
-				aqi: "",
-				range: "",
-				discription: ""
+				name:"",
+				aqi:"",
+				range:"",
+				discription:""
 			}]
 		},
 
@@ -139,6 +140,8 @@ var weather = {
 }
 
 
+console.log(weather.current.air_quality);
+console.log(weather.current.humidity);
 
 
 window.onload = function() {
@@ -318,7 +321,7 @@ function doit(){
 							airQuality.range = air[0].range;
 							airQuality.discription = air[0].discription;
 							airQuality.details = air;
-							weather.current.air_quality = airQuality;
+							// weather.current.air_quality = airQuality;
 						});
 				});
 

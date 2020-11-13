@@ -104,6 +104,9 @@ icon.test = () => {
 };
 
 icon.filter = (iconURL) => {
+  if(!iconURL){
+    return undefined;
+  }
   let icon;
 
   const sunny = ["skc", "wind_skc", "hot"];
@@ -865,7 +868,6 @@ Current.makeForecast = (weather, geo) => {
 
   // c.description_icon is now c.icon
   c.icon = icon.filter(weather.icon);
-  console.log(weather);
   // TEMP
   c.temp = {
     current: Ute.celsiusToFahrenheit(weather.temperature.value),
@@ -43219,26 +43221,27 @@ var weather = {
 		pressure:"",
 		cloud_cover: "",
 		uv: "",
+
 		air_quality: {
-			name: "",
-			aqi: "",
-			range: "",
-			discription: "",
+			name:"",
+			aqi:"",
+			range:"",
+			discription:"",
 			details: [{
-				name: "",
-				aqi: "",
-				range: "",
-				discription: ""
+				name:"",
+				aqi:"",
+				range:"",
+				discription:""
 			}, {
-				name: "",
-				aqi: "",
-				range: "",
-				discription: ""
+				name:"",
+				aqi:"",
+				range:"",
+				discription:""
 			}, {
-				name: "",
-				aqi: "",
-				range: "",
-				discription: ""
+				name:"",
+				aqi:"",
+				range:"",
+				discription:""
 			}]
 		},
 
@@ -43286,6 +43289,8 @@ var weather = {
 };
 
 
+console.log(weather.current.air_quality);
+console.log(weather.current.humidity);
 
 
 window.onload = function() {
@@ -43454,7 +43459,7 @@ function doit(){
 							airQuality.range = air[0].range;
 							airQuality.discription = air[0].discription;
 							airQuality.details = air;
-							weather.current.air_quality = airQuality;
+							// weather.current.air_quality = airQuality;
 						});
 				});
 
