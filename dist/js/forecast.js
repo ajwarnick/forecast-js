@@ -43131,7 +43131,7 @@ const zipApi = {
 };
 
 zipApi.get = (zip) => {
-    return fetch(zipApi.url + zip )
+    return fetch(zipApi.url + zip, {mode:'cors'} )
         .then(response => response.json())
 };
 
@@ -43216,34 +43216,40 @@ var weather = {
 			degree: "",
 			direction: ""	
 		},
+		air_quality: {
+			name: "name"
+		},
 
 		humidity: "",
 		pressure:"",
 		cloud_cover: "",
 		uv: "",
 
-		air_quality: {
-			name:"",
-			aqi:"",
-			range:"",
-			discription:"",
-			details: [{
-				name:"",
-				aqi:"",
-				range:"",
-				discription:""
-			}, {
-				name:"",
-				aqi:"",
-				range:"",
-				discription:""
-			}, {
-				name:"",
-				aqi:"",
-				range:"",
-				discription:""
-			}]
-		},
+		
+
+		// air_quality: {
+		// 	name:"",
+		// 	aqi:"",
+		// 	range:"",
+		// 	discription:"",
+
+		// 	details: [{
+		// 		name:"",
+		// 		aqi:"",
+		// 		range:"",
+		// 		discription:""
+		// 	}, {
+		// 		name:"",
+		// 		aqi:"",
+		// 		range:"",
+		// 		discription:""
+		// 	}, {
+		// 		name:"",
+		// 		aqi:"",
+		// 		range:"",
+		// 		discription:""
+		// 	}]
+		// },
 
 		parcipitation: {
 			rain: "",
@@ -43288,9 +43294,6 @@ var weather = {
 	end: ""
 };
 
-
-console.log(weather.current.air_quality);
-console.log(weather.current.humidity);
 
 
 window.onload = function() {
@@ -43459,7 +43462,11 @@ function doit(){
 							airQuality.range = air[0].range;
 							airQuality.discription = air[0].discription;
 							airQuality.details = air;
-							// weather.current.air_quality = airQuality;
+							
+							return airQuality;
+						})
+						.then((airObj) => {
+							// weather.current.air_quality = airObj;
 						});
 				});
 

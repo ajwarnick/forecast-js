@@ -189,6 +189,12 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
+#### [2.1.0] - 2021-03-31
+
+##### Updated 
+
+Fetch for zip api now used {mode:'cors'}
+
 #### [2.0.4] - 2020-11-04
 
 ##### Added

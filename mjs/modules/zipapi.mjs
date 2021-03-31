@@ -4,7 +4,7 @@ const zipApi = {
 }
 
 zipApi.get = (zip) => {
-    return fetch(zipApi.url + zip )
+    return fetch(zipApi.url + zip, {mode:'cors'} )
         .then(response => response.json())
 }
 
