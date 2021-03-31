@@ -1,5 +1,5 @@
 const zipApi = {
-    url: "https://zipapi.warnick.vercel.app/api/"
+    url: "https://zipapi.vercel.app/api/"
     // url: "http://localhost:3000/api/"
 }
 
