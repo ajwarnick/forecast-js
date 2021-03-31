@@ -43136,7 +43136,7 @@ zipApi.get = (zip) => {
 };
 
 const uvApi = {
-    url: "https://zipapi.warnick.vercel.app/api/uv/"
+    url: "https://zipapi.vercel.app/api/uv/"
     // url: "http://localhost:3000/api/uv/"
 };
 
@@ -43146,7 +43146,7 @@ uvApi.get = (zip) => {
 };
 
 const airApi = {
-    url: "https://zipapi.warnick.vercel.app/api/air/"
+    url: "https://zipapi.vercel.app/api/air/"
     // url: "http://localhost:3000/api/air/"
 };
 
