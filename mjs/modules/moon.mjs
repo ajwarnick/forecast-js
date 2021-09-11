@@ -70,10 +70,10 @@ const Moon = {
 
     switch (Math.round(mapped)) {
       case 0:
-        return "new-moon";
+        return {class: "new-moon", name: "New Moon"}
       // break;
       case 1:
-        return "waxing-crescent-moon";
+        return {class: "waxing-crescent-moon", name: "Waxing Crescent Moon"}
       // break;
       case 2:
         return "quarter-moon";

@@ -189,7 +189,11 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
-#### [2.2.0] - 2021-03-31
+#### [2.2.0] - 2021-09-11
+
+##### Added
+
+Moon has changed from .moon to be an object .moon.class is slug (i.e. "waxing-crescent-moon") and .moon.name is human readable (i.e. "Waxing Crescent Moon") this breaks past uses of moon 
 
 ##### Updated 
 
