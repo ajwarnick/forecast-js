@@ -71,28 +71,20 @@ const Moon = {
     switch (Math.round(mapped)) {
       case 0:
         return {class: "new-moon", name: "New Moon"}
-      // break;
       case 1:
         return {class: "waxing-crescent-moon", name: "Waxing Crescent Moon"}
-      // break;
       case 2:
-        return "quarter-moon";
-      // break;
+        return {class: "quarter-moon", name: "Quarter Moon"}
       case 3:
-        return "waxing-gibbous-moon";
-      // break;
+        return {class: "waxing-gibbous-moon", name: "Waxing Gibbous Moon"}
       case 4:
-        return "full-moon";
-      // break;
+        return {class: "full-moon", name: "Full Moon"}
       case 5:
-        return "waning-gibbous-moon";
-      // break;
+        return {class: "waning-gibbous-moon", name: "Waning Gibbous Moon"}
       case 6:
-        return "last-quarter-moon";
-      // break;
+        return {class: "last-quarter-moon", name: "Last Quarter Moon"}
       case 7:
-        return "waning-crescent-moon";
-      // break;
+        return {class: "waning-crescent-moon", name: "Waning Crescent Moon"}
       default:
       // do nothing
     }

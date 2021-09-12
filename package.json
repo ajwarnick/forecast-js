@@ -21,9 +21,8 @@
   "author": "Anthony Warnick",
   "license": "MIT",
   "devDependencies": {
-    "dual-publish": "^0.8.5",
     "js-cookie": "^3.0.1",
-    "rollup": "^2.2.0",
+    "rollup": "^2.56.3",
     "rollup-plugin-terser": "^7.0.2",
     "vue": "^2.6.14"
   },

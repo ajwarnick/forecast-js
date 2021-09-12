@@ -47,7 +47,10 @@ let weather = {
 		minute:"",
 		seconds:"",
 		ampm:"",
-		moom: "",
+		moom: {
+			name: "",
+			class: ""
+		},
 		timezone: ""
 	},
 	

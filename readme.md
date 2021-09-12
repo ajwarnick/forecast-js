@@ -189,21 +189,26 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
-#### [2.2.0] - 2021-09-11
+#### [2.2.0] - 2021-03-31
 
-##### Added
+##### Changed
 
 Moon has changed from .moon to be an object .moon.class is slug (i.e. "waxing-crescent-moon") and .moon.name is human readable (i.e. "Waxing Crescent Moon") this breaks past uses of moon 
 
 ##### Updated 
 
-Update @rollup/plugin-replace to 3.0.0
-Update dual-publish to 1.0.8
 Update js-cookie to 3.0.1
 Update rollup to 2.56.3
 Update rollup-plugin-terser to 7.0.2
 Update vue to  2.6.14
 Update sunrise-sunset-js to 2.2.1
+
+##### Removed
+
+Expired dependancies:
+Removed @rollup/plugin-replace
+Removed dual-publish
+
 
 #### [2.1.0] - 2021-03-31
 
