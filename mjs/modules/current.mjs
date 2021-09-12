@@ -1,4 +1,3 @@
-import { Moon } from "./moon.mjs";
 import { icon } from "./icons.mjs";
 import { Ute } from "./ute.mjs";
 import { getSunrise, getSunset } from './sun.mjs';

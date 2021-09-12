@@ -11,9 +11,10 @@ import Cookies from './modules/js.cookie.min.mjs';
 import { zipApi } from "./modules/zipapi.mjs";
 import { uvApi } from "./modules/uv.mjs";
 import { airApi } from "./modules/air.mjs";
+
 /* VUE GETS BUDLED IN */
 import Vue from '../node_modules/vue/dist/vue.esm.browser.min.js';
-// const app = document.getElementById("app");
+
 
 
 /* DEBUG SETTING */
@@ -23,7 +24,7 @@ let debug = false;
 let zip;
 
 /* DEFAULT WEATHER OBJECT */
-var weather = {
+let weather = {
 	error: "",
 
     city: "",
@@ -134,16 +135,16 @@ var weather = {
 	],
 
 	forecast: [
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" }
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" }
 	],
 	end: ""
-}
+};
 
 
 
@@ -341,6 +342,7 @@ function doit(){
 			// Removes the loading class once the data has been added
 			document.getElementById("app").classList.remove("loading");
 		});
+
 }
 
 
@@ -375,10 +377,9 @@ function updateTime() {
 
 
 
-const updateWeather = () => {
+// const updateWeather = () => {
 
-}
-
+// }
 
 
 
@@ -405,7 +406,7 @@ var vm = new Vue({
 			
 		},
 		closeParent: function (el){
-			console.log(el);
+			// console.log(el);
 			el.target.parentNode.remove();
 		}
 	}
