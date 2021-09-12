@@ -46,7 +46,10 @@ var weather = {
 		minute:"",
 		seconds:"",
 		ampm:"",
-		moom: "",
+		moom: {
+			name: "",
+			class: ""
+		},
 		timezone: ""
 	},
 	
@@ -134,13 +137,13 @@ var weather = {
 	],
 
 	forecast: [
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" },
-		{ weather:"" }
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" },
+		{ weather:"", moon:"" }
 	],
 	end: ""
 }
