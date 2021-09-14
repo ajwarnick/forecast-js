@@ -7,6 +7,7 @@
   "module": "mjs/forecast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx serve",
     "watch": "sass --watch scss/forecast.scss dist/css/forecast.css",
     "scss": "sass scss/forecast.scss dist/css/forecast.css",
     "scssMin": "sass scss/forecast.scss:dist/css/forecast.min.css --style compressed",

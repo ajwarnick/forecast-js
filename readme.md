@@ -189,7 +189,51 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
-#### [2.2.0] - 2021-03-31
+#### [2.3.0] - 2021-09-15
+
+##### Added
+
+Added the city under the location object
+
+Set default ZIP code with a data attribute:
+
+```html
+<body>
+  <div class="results" id="app" data-default-zip="90210">
+  </div>
+</body>
+```
+
+Added Air Quality object under Current. 
+```json
+{
+   "name":"PM2.5",
+   "aqi":50,
+   "range":1,
+   "discription":"Good",
+   "details":[
+      {
+         "name":"PM2.5",
+         "aqi":50,
+         "range":1,
+         "discription":"Good"
+      },
+      {
+         "name":"O3",
+         "aqi":35,
+         "range":1,
+         "discription":"Good"
+      }
+   ]
+}
+```
+
+
+##### Removed
+
+removed the city variable replaced with location.city 
+
+#### [2.2.0] - 2021-09-12
 
 ##### Changed
 
@@ -281,10 +325,9 @@ Expired dependancies
 
 #### v2.5
 
-- have students set default Zip Code and fill it to their id 
+- ~~have students set default Zip Code and fill it to their id~~
 - ~~get more info from NOA~~ 
 - Solution for matching multiple icons
-- Set User-Agent: (myweatherapp.com, contact@myweatherapp.com)
 - ~~Add https://www.airnow.gov/?city=Manhattan&state=KS&country=USA~~
 - ~~Fix day shift sunrise sunset~~
 
@@ -293,7 +336,7 @@ Expired dependancies
 - Add other types of search 
 - Add map back in 
 - get mothods written by students and add those dynamically to the vue methods 
-
+- Set User-Agent: (myweatherapp.com, contact@myweatherapp.com)
 
 
 ## Contributors 
