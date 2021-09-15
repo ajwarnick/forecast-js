@@ -181,6 +181,8 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ###### [Full exmaple](https://codesandbox.io/s/forecast-js-example-v201-in96t)
 
+###### [All Variables](https://codesandbox.io/s/forecast-js-all-v201-kn5de?file=/index.html)
+
 ###### [Current Temp](https://codesandbox.io/s/forecast-js-temp-v201-8bts7)
 
 ###### [Display Icon](https://codesandbox.io/s/forecast-js-images-v201-wg57e)
