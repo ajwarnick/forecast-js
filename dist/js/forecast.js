@@ -43168,13 +43168,13 @@
   let weather = {
   	error: "",
 
-      city: "",
   	location: {
   		zip: "",
   		coord: {
   			lat: "",
   			lon: ""
   		},
+  		city: "",
   		name: "",
   		state: ""
   	},
@@ -43212,40 +43212,40 @@
   			degree: "",
   			direction: ""	
   		},
-  		air_quality: {
-  			name: "name"
-  		},
+  		
 
   		humidity: "",
   		pressure:"",
   		cloud_cover: "",
   		uv: "",
 
-  		
-
   		// air_quality: {
-  		// 	name:"",
-  		// 	aqi:"",
-  		// 	range:"",
-  		// 	discription:"",
-
-  		// 	details: [{
-  		// 		name:"",
-  		// 		aqi:"",
-  		// 		range:"",
-  		// 		discription:""
-  		// 	}, {
-  		// 		name:"",
-  		// 		aqi:"",
-  		// 		range:"",
-  		// 		discription:""
-  		// 	}, {
-  		// 		name:"",
-  		// 		aqi:"",
-  		// 		range:"",
-  		// 		discription:""
-  		// 	}]
+  		// 	name: "name"
   		// },
+
+  		air_quality: {
+  			name:"",
+  			aqi:"",
+  			range:"",
+  			discription:"",
+
+  			details: [{
+  				name:"",
+  				aqi:"",
+  				range:"",
+  				discription:""
+  			}, {
+  				name:"",
+  				aqi:"",
+  				range:"",
+  				discription:""
+  			}, {
+  				name:"",
+  				aqi:"",
+  				range:"",
+  				discription:""
+  			}]
+  		},
 
   		parcipitation: {
   			rain: "",
@@ -43294,13 +43294,16 @@
 
   window.onload = function() {
 
-      Warnick.init();
+  	const app = document.querySelector('#app');
+
+  	Warnick.init();
       
       if( Ute.getURLparam('zip') ){
 
           if( Zip.zipTest( Ute.getURLparam('zip') ) ){
               zip = Ute.getURLparam('zip');
               //set cookie
+  			// Cookies.set('zip', zip);
           }
       }
 
@@ -43310,6 +43313,13 @@
   			zip = r$1.get('zip');
           }
       }
+
+  	if( app.dataset.defaultZip && !zip){
+
+  		if( Zip.zipTest( app.dataset.defaultZip ) ){
+              zip = app.dataset.defaultZip;
+          }
+  	}
   	
   	if( zip ){
   		doit();
@@ -43330,7 +43340,7 @@
 
   	Zip.getCityAndState(weather.location.zip)
   		.then((value) => {
-  			weather.city = value.city;
+  			weather.location.city = value.city;
   			weather.location.name = value.city;
   			weather.location.state = value.state;			
   		})
@@ -43462,7 +43472,7 @@
   							return airQuality;
   						})
   						.then((airObj) => {
-  							// weather.current.air_quality = airObj;
+  							weather.current.air_quality = airObj;
   						});
   				});
 
