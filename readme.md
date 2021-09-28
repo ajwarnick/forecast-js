@@ -53,12 +53,12 @@ In the body of your HTML, everything should be within a `<div class="results" id
 
 ```html
 <body>
-  <div class="results" id="app">
+  <div class="results" id="app" data-default-zip="90210">
     
   </div>
 </body>
 ```
-
+Additionally, you can set the default zip here with the data attribute 'data-default-zip'.
 ##### Third (ZIP Code)
 
 To trigger the fetching of data you will need to use the input for ZIP code. 
