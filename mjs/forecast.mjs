@@ -8,13 +8,13 @@ import { Warnick } from "./modules/warnick.mjs";
 import { Zip } from "./modules/zip.mjs";
 import { Moon } from "./modules/moon.mjs";
 import Cookies from './modules/js.cookie.min.mjs';
-import { zipApi } from "./modules/zipapi.mjs";
+// import { zipApi } from "./modules/zipapi.mjs";
+import { openZip } from "./modules/openZip.mjs";
 import { uvApi } from "./modules/uv.mjs";
 import { airApi } from "./modules/air.mjs";
 
 /* VUE GETS BUDLED IN */
 import Vue from '../node_modules/vue/dist/vue.esm.browser.min.js';
-
 
 
 /* DEBUG SETTING */
@@ -208,29 +208,15 @@ function doit(){
 			weather.location.state = value.state;			
 		})
 		.then(() => {
-			// return Google.getLatLon(weather.location.zip)
-			// 	.then((data)=>{
-			// 		(debug) && (console.log("Latitude: " + data.latitude ));
-			// 		(debug) && (console.log("Longitude: " + data.longitude ));
-					
-			// 		weather.location.coord.lat = data.latitude;
-			// 		weather.location.coord.lon = data.longitude;
-
-			// 		return {lat: weather.location.coord.lat, lon: weather.location.coord.lon};
-			// 	})
-
-
-			return zipApi.get(weather.location.zip)
-				.then(data => {
-					weather.location.coord.lat = data.Lat;
-					weather.location.coord.lon = data.Long;
-					const cord = {
-						lat: data.Lat,
-						lon: data.Long
-					}
-					return cord
-				})
-			
+			return openZip.get(weather.location.zip).then(data => {
+				weather.location.coord.lat = data[0].lat;
+				weather.location.coord.lon = data[0].lon;
+				const cord = {
+					lat: data[0].lat,
+					lon: data[0].lon
+				}
+				return cord
+			})
 		})
 		.then((cord) => {
 			/* GRID RETRIEVAL AND PARSING FUNCTIONS */
@@ -392,7 +378,6 @@ function updateTime() {
 
 
 // const updateWeather = () => {
-
 // }
 
 
