@@ -197,7 +197,7 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ZIP code look up is now handled with openstreemaps
 
-##### Added
+##### Fixed
 
 Issue with ZIP codes starting with 0 
 
