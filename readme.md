@@ -191,6 +191,17 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
+#### [2.3.1] - 2021-09-28
+
+##### Added
+
+ZIP code look up is now handled with openstreemaps
+
+##### Added
+
+Issue with ZIP codes starting with 0 
+
+
 #### [2.3.0] - 2021-09-15
 
 ##### Added
