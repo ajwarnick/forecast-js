@@ -4,11 +4,9 @@
 
 A small weather app using data from the [National Weather Service (NWS)](https://www.weather.gov)
 
-## Description 
+## Description
 
-Using Vue for data binding this app provides both current data, forecast predictions, and weather map for a ZIP code in the United States. The data is obtained from the [National Weather Service (NWS)](https://www.weather.gov) which is supported through federal taxes dollars. This library is markup agnostic and simply provides an object you can inject into your design. 
-
-
+Using Vue for data binding this app provides both current data, forecast predictions, and weather map for a ZIP code in the United States. The data is obtained from the [National Weather Service (NWS)](https://www.weather.gov) which is supported through federal taxes dollars. This library is markup agnostic and simply provides an object you can inject into your design.
 
 ## Usage
 
@@ -22,29 +20,39 @@ Use the [NPM](https://www.npmjs.com) package manager to install [forecast-js](ht
 npm install --save @warnick/forecast-js
 ```
 
-
-
 #### Using UNPKG
 
 Simply, include the CDN links in the head of your HTML. (See above for typical use).
 
 ```html
-<script src="https://unpkg.com/@warnick/forecast-js/dist/js/forecast.min.js" defer></script>
-<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/dist/css/forecast.css">
+<script
+  src="https://unpkg.com/@warnick/forecast-js/dist/js/forecast.min.js"
+  defer
+></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@warnick/forecast-js/dist/css/forecast.css"
+/>
 ```
 
-### Prerequisite 
+### Prerequisite
 
 Before you begin there are a few things you need.
 
-##### First  (Load JS)
+##### First (Load JS)
 
-Import the library into the head of your `index.html` file. 
+Import the library into the head of your `index.html` file.
 
 ```html
-<script src="https://unpkg.com/@warnick/forecast-js/dist/js/forecast.min.js" defer></script>
-<link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/dist/css/forecast.css">
-<link rel="stylesheet" href="/style.css">
+<script
+  src="https://unpkg.com/@warnick/forecast-js/dist/js/forecast.min.js"
+  defer
+></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@warnick/forecast-js/dist/css/forecast.css"
+/>
+<link rel="stylesheet" href="/style.css" />
 ```
 
 ##### Second (HTML Necessities)
@@ -53,55 +61,50 @@ In the body of your HTML, everything should be within a `<div class="results" id
 
 ```html
 <body>
-  <div class="results" id="app" data-default-zip="90210">
-    
-  </div>
+  <div class="results" id="app" data-default-zip="90210"></div>
 </body>
 ```
+
 Additionally, you can set the default zip here with the data attribute 'data-default-zip'.
+
 ##### Third (ZIP Code)
 
-To trigger the fetching of data you will need to use the input for ZIP code. 
+To trigger the fetching of data you will need to use the input for ZIP code.
 
 ```html
-<input placeholder="Enter Your ZIP Code"  v-on:input="zip_trigger" name="name" id="zip" />
+<input
+  placeholder="Enter Your ZIP Code"
+  v-on:input="zip_trigger"
+  name="name"
+  id="zip"
+/>
 ```
-
-
 
 ### Weather Object
 
 #### Variables
 
-There are six main categories of information: location, time, alerts, current, hourly, and forecast. Within each of these there are a myriad of pieces of data you can implement into your application. 
-
-
+There are six main categories of information: location, time, alerts, current, hourly, and forecast. Within each of these there are a myriad of pieces of data you can implement into your application.
 
 #### Location
 
-This is based on the Zip Code entered in the input or retrieved from a browser cookie. This object contains: 
-
-
+This is based on the Zip Code entered in the input or retrieved from a browser cookie. This object contains:
 
 #### Icons
 
-
-
-| Icon                                                         | Code         | Description                  |
-| ------------------------------------------------------------ | ------------ | ---------------------------- |
-| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/01d.png) | skc          | Clear Sky                    |
-| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/02d.png) | few          | Few Clouds                   |
+| Icon                                                                                                         | Code         | Description                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------- |
+| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/01d.png)        | skc          | Clear Sky                    |
+| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/02d.png)       | few          | Few Clouds                   |
 | ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/03d.png) | sct          | Scattered Clouds             |
-| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/04d.png) | bkn          | Broken Clouds                |
-| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/09d.png) | rain_showers | Rain Showers                 |
-| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/10d.png) | rain         | Rain                         |
-| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/11d.png) | tsra         | Thunderstorm                 |
-| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/13d.png) | snow         | Snow                         |
-| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/50d.png) | fog          | Fog, Haze, <br />Smoke, Dust |
+| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/04d.png)    | bkn          | Broken Clouds                |
+| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/09d.png)      | rain_showers | Rain Showers                 |
+| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/10d.png)             | rain         | Rain                         |
+| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/11d.png)     | tsra         | Thunderstorm                 |
+| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/13d.png)             | snow         | Snow                         |
+| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/50d.png)             | fog          | Fog, Haze, <br />Smoke, Dust |
 
 ##### Complex Icons
-
-
 
 ###### Clear Sky / Sunny
 
@@ -110,8 +113,6 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 | skc       | Fair/clear           |
 | wind_skc  | Fair/clear and windy |
 | hot       | Hot                  |
-
-
 
 ###### Clouds
 
@@ -134,8 +135,6 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 | rain_showers_hi | Rain showers (high cloud cover) |
 | rain_showers    | Rain showers (low cloud cover)  |
 
-
-
 ###### Thunderstorm
 
 | Icon Code      | Description                       |
@@ -146,8 +145,6 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 | tornado        | Tornado                           |
 | hurricane      | Hurricane conditions              |
 | tropical_storm | Tropical storm conditions         |
-
-
 
 ###### Snow
 
@@ -164,8 +161,6 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 | blizzard   | Blizzard           |
 | cold       | Cold               |
 
-
-
 ###### Fog/Haze/Smoke
 
 | Icon Code | Description |
@@ -175,9 +170,7 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 | smoke     | Smoke       |
 | dust      | Dust        |
 
-
-
-### Exemples 
+### Exemples
 
 ###### [Full exmaple](https://codesandbox.io/s/forecast-js-example-v201-in96t)
 
@@ -191,7 +184,7 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
-#### [2.3.1] - 2021-09-30
+#### [2.3.3] - 2021-10-06
 
 ##### Fixed
 
@@ -205,8 +198,7 @@ ZIP code look up is now handled with openstreemaps
 
 ##### Fixed
 
-Issue with ZIP codes starting with 0 
-
+Issue with ZIP codes starting with 0
 
 #### [2.3.0] - 2021-09-15
 
@@ -218,52 +210,51 @@ Set default ZIP code with a data attribute:
 
 ```html
 <body>
-  <div class="results" id="app" data-default-zip="90210">
-  </div>
+  <div class="results" id="app" data-default-zip="90210"></div>
 </body>
 ```
 
-Added Air Quality object under Current. 
+Added Air Quality object under Current.
+
 ```json
 {
-   "name":"PM2.5",
-   "aqi":50,
-   "range":1,
-   "discription":"Good",
-   "details":[
-      {
-         "name":"PM2.5",
-         "aqi":50,
-         "range":1,
-         "discription":"Good"
-      },
-      {
-         "name":"O3",
-         "aqi":35,
-         "range":1,
-         "discription":"Good"
-      }
-   ]
+  "name": "PM2.5",
+  "aqi": 50,
+  "range": 1,
+  "discription": "Good",
+  "details": [
+    {
+      "name": "PM2.5",
+      "aqi": 50,
+      "range": 1,
+      "discription": "Good"
+    },
+    {
+      "name": "O3",
+      "aqi": 35,
+      "range": 1,
+      "discription": "Good"
+    }
+  ]
 }
 ```
 
-
 ##### Removed
 
-removed the city variable replaced with location.city 
+removed the city variable replaced with location.city
 
 #### [2.2.0] - 2021-09-12
 
 ##### Changed
 
-Moon has changed from .moon to be an object .moon.class is slug (i.e. "waxing-crescent-moon") and .moon.name is human readable (i.e. "Waxing Crescent Moon") this breaks past uses of moon 
+Moon has changed from .moon to be an object .moon.class is slug (i.e. "waxing-crescent-moon") and .moon.name is human readable (i.e. "Waxing Crescent Moon") this breaks past uses of moon
 
-##### Updated 
+##### Updated
 
 Update js-cookie to 3.0.1
 Update rollup to 2.56.3
 Update rollup-plugin-terser to 7.0.2
-Update vue to  2.6.14
+Update vue to 2.6.14
 Update sunrise-sunset-js to 2.2.1
 
 ##### Removed
@@ -272,10 +263,9 @@ Expired dependancies:
 Removed @rollup/plugin-replace
 Removed dual-publish
 
-
 #### [2.1.0] - 2021-03-31
 
-##### Updated 
+##### Updated
 
 Fetch for zip api now used {mode:'cors'}
 
@@ -284,7 +274,7 @@ Fetch for zip api now used {mode:'cors'}
 ##### Added
 
 weather.current.uv - UV index from the EPA's Envirofacts Data Service API  
-weather.current.air_quality - Air quality information from EPA's airnow.gov   
+weather.current.air_quality - Air quality information from EPA's airnow.gov
 
 #### [2.0.0] - 2020-09-19
 
@@ -292,12 +282,12 @@ weather.current.air_quality - Air quality information from EPA's airnow.gov
 
 Shifted all data to NWS
 
-##### Removed 
+##### Removed
 
- [OpenWeatherMap](https://openweathermap.org/api) and [Weatherbit](https://www.weatherbit.io/api) data  
+[OpenWeatherMap](https://openweathermap.org/api) and [Weatherbit](https://www.weatherbit.io/api) data  
 Removed map and moved it to version 3
 
-##### Depricated 
+##### Depricated
 
 current.uv [Hopefully will return in v3]  
 cuurrent.air_quality [Hopefully will return in v3]  
@@ -307,13 +297,13 @@ forecast[i].vis
 forecast[i].pop  
 forecast[i].precip  
 forecast[i].snow  
-forecast[i].pres   
+forecast[i].pres
 
 #### [1.6.0] - 2020-03-18
 
 ##### Changed
 
-Time is now localized to the time at the zip code 
+Time is now localized to the time at the zip code
 
 #### [1.5.0] - 2020-03-18
 
@@ -323,8 +313,7 @@ Updated Readme
 
 ##### Changed
 
-Fixed Mixed content (http/https) 
-
+Fixed Mixed content (http/https)
 
 #### [1.4.0] - 2020-03-15
 
@@ -336,35 +325,30 @@ Working map using [OpenLayers](https://openlayers.org)
 
 ##### Removed
 
-Expired dependancies 
-
-
+Expired dependancies
 
 ## TODO
 
 #### v2.5
 
 - ~~have students set default Zip Code and fill it to their id~~
-- ~~get more info from NOA~~ 
+- ~~get more info from NOA~~
 - Solution for matching multiple icons
 - ~~Add https://www.airnow.gov/?city=Manhattan&state=KS&country=USA~~
 - ~~Fix day shift sunrise sunset~~
 
-#### v3 
+#### v3
 
-- Add other types of search 
-- Add map back in 
-- get mothods written by students and add those dynamically to the vue methods 
+- Add other types of search
+- Add map back in
+- get mothods written by students and add those dynamically to the vue methods
 - Set User-Agent: (myweatherapp.com, contact@myweatherapp.com)
 
-
-## Contributors 
+## Contributors
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 - [Anthony Warnick](https://github.com/ajwarnick)
-
-
 
 ## License
 
