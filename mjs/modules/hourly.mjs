@@ -7,13 +7,13 @@ const Hourly = {
 
 Hourly.get = (gridId, gridX, gridY) => {
   return Hourly.getURL(
-    "https://api.weather.gov/gridpoints/" +
-      gridId +
-      "/" +
-      gridX +
-      "," +
-      gridY +
-      "/forecast/hourly"
+    "//api.weather.gov/gridpoints/" +
+    gridId +
+    "/" +
+    gridX +
+    "," +
+    gridY +
+    "/forecast/hourly"
   );
 };
 
@@ -38,7 +38,7 @@ Hourly.makeForecast = (hours) => {
 
     hour.moon = Moon.simple(hour.year, hour.month, hour.day);
 
-    hour.time = date.getHours() > 12  ? date.getHours() % 12 : date.getHours() ;
+    hour.time = date.getHours() > 12 ? date.getHours() % 12 : date.getHours();
     hour.time24 = date.getHours();
     hour.ampm = date.getHours() >= 12 ? "pm" : "am";
 

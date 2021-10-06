@@ -16,21 +16,21 @@ Current.get = (gridId, gridX, gridY, station = 0) => {
   Current.gridX = gridX;
   Current.gridY = gridY;
   Current.station = station;
-  return fetch("https://api.weather.gov/gridpoints/" +
-              gridId +
-              "/" +
-              gridX +
-              "," +
-              gridY +
-              "/stations")
+  return fetch("//api.weather.gov/gridpoints/" +
+    gridId +
+    "/" +
+    gridX +
+    "," +
+    gridY +
+    "/stations")
     .then((response) => response.json())
-    .then((data)=>Current.getStation(data.features[station].properties.stationIdentifier))
+    .then((data) => Current.getStation(data.features[station].properties.stationIdentifier))
 
 }
 
 Current.getStation = (station) => {
   return Current.getURL(
-    "https://api.weather.gov/stations/" + station + "/observations/latest"
+    "//api.weather.gov/stations/" + station + "/observations/latest"
   );
 };
 
@@ -40,12 +40,12 @@ Current.getURL = (url) => {
       if (response.ok) {
         return response.json()
       } else {
-        if(response.status){
+        if (response.status) {
           return Current.get(Current.gridId, Current.gridX, Current.gridY, Current.station + 1);
           // console.log(response.status)
           // return Promise.reject('some error happend maybe 404')
         }
-        
+
       }
     })
     .then((json) => {
@@ -55,7 +55,7 @@ Current.getURL = (url) => {
 
 Current.makeForecast = (weather, geo) => {
   let c = {};
-  
+
   // GEO
   let lat = geo.coordinates[1];
   let lon = geo.coordinates[0];
@@ -66,21 +66,21 @@ Current.makeForecast = (weather, geo) => {
     hour: sr.getHours(),
     minute: Ute.zeroPadding(sr.getMinutes(), 2),
     seconds: Ute.zeroPadding(sr.getSeconds(), 2),
-    ampm:  sr.getHours() >= 12 ? 'pm' : 'am',
+    ampm: sr.getHours() >= 12 ? 'pm' : 'am',
     time: sr.getHours() + ":" + Ute.zeroPadding(sr.getMinutes(), 2)
   }
-  
+
   // SUNSET
   let ss = getSunset(lat, lon, new Date());
   c.sunset = {
     hour: Ute.to12Hours(ss.getHours()),
     minute: Ute.zeroPadding(ss.getMinutes(), 2),
     seconds: Ute.zeroPadding(ss.getSeconds(), 2),
-    ampm:  ss.getHours() >= 12 ? 'pm' : 'am',
+    ampm: ss.getHours() >= 12 ? 'pm' : 'am',
     time: Ute.to12Hours(ss.getHours()) + ":" + Ute.zeroPadding(ss.getMinutes(), 2)
   }
 
-  
+
 
   c.description_main = weather.textDescription;
   // c.description_long
@@ -92,7 +92,7 @@ Current.makeForecast = (weather, geo) => {
     current: Ute.celsiusToFahrenheit(weather.temperature.value),
     // high: ,
     // low: ,
-    feelslike: Ute.celsiusToFahrenheit( (weather.windChill.value) + (weather.heatIndex.value) + (weather.temperature.value)),
+    feelslike: Ute.celsiusToFahrenheit((weather.windChill.value) + (weather.heatIndex.value) + (weather.temperature.value)),
     heatIndex: Ute.celsiusToFahrenheit(weather.heatIndex.value),
     windChill: Ute.celsiusToFahrenheit(weather.windChill.value),
     unit: "F"
@@ -100,7 +100,7 @@ Current.makeForecast = (weather, geo) => {
 
   // WIND
   c.wind = {
-    speed: Math.round( Ute.kmPerHourToMiles(weather.windSpeed.value) ),
+    speed: Math.round(Ute.kmPerHourToMiles(weather.windSpeed.value)),
     gust: Ute.kmPerHourToMiles(weather.windGust.value),
     unit: "mph",
     angle: weather.windDirection.value,
@@ -131,7 +131,7 @@ Current.makeForecast = (weather, geo) => {
 
   c.visibility = Math.round(Ute.metersToMiles(weather.visibility.value));
   c.visibilityUnit = "mi";
-  c.humidity = Math.round( weather.relativeHumidity.value );
+  c.humidity = Math.round(weather.relativeHumidity.value);
   c.humidityUnit = weather.relativeHumidity.unitCode === "unit:percent" ? "%" : undefined;
 
   // c.cloud_cover

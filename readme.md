@@ -191,6 +191,12 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 
 ## Changelog
 
+#### [2.3.1] - 2021-09-30
+
+##### Fixed
+
+Mixed Content Fetch in Hourly and Forecast
+
 #### [2.3.1] - 2021-09-28
 
 ##### Added
