@@ -14,7 +14,7 @@ Using Vue for data binding this app provides both current data, forecast predict
 
 #### Using NPM
 
-Use the [NPM](https://www.npmjs.com) package manager to install [forecast-js](https://www.npmjs.com/package/@warnick/forecast-js). For ----
+Use the [NPM](https://www.npmjs.com) package manager to install [forecast-js](https://www.npmjs.com/package/@warnick/forecast-js).
 
 ```bash
 npm install --save @warnick/forecast-js
@@ -52,7 +52,6 @@ Import the library into the head of your `index.html` file.
   rel="stylesheet"
   href="https://unpkg.com/@warnick/forecast-js/dist/css/forecast.css"
 />
-<link rel="stylesheet" href="/style.css" />
 ```
 
 ##### Second (HTML Necessities)
@@ -89,6 +88,63 @@ There are six main categories of information: location, time, alerts, current, h
 #### Location
 
 This is based on the Zip Code entered in the input or retrieved from a browser cookie. This object contains:
+
+```json
+{
+  "location": {
+    "zip": "",
+    "coord": {
+      "lat": "",
+      "lon": ""
+    },
+    "city": "",
+    "name": "",
+    "state": ""
+  }
+}
+```
+
+#### Time
+
+```json
+{
+  "time": {
+    "day": "",
+    "date": "",
+    "hour_24": "",
+    "hour_12": "",
+    "minute": "",
+    "seconds": "",
+    "ampm": "",
+    "moom": {
+      "name": "",
+      "class": ""
+    },
+    "timezone": ""
+  }
+}
+```
+
+#### Alerts
+
+```json
+{
+  "alert": false,
+  "alerts": []
+}
+```
+
+#### Current
+
+```json
+{}
+```
+
+#### Hourly
+
+```json
+{}
+```
 
 #### Icons
 
