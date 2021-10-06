@@ -20,6 +20,21 @@ import Vue from '../node_modules/vue/dist/vue.esm.browser.min.js';
 /* DEBUG SETTING */
 let debug = false;
 
+// get debug from main element
+
+// loading sections 
+
+// let sections = {
+// 	time: document.querySelectorAll(".time"),
+// 	location: document.querySelectorAll(".location"),
+// 	current: document.querySelectorAll(".current"),
+// 	air_quality: document.querySelectorAll(".air_quality"),
+// 	uv: document.querySelectorAll(".uv"),
+// 	hourly: document.querySelectorAll(".hourly"),
+// 	forecast: document.querySelectorAll(".forecast"),
+// }
+
+
 /* ZIP CODE VARIABLE */
 let zip;
 
@@ -78,9 +93,6 @@ let weather = {
 		cloud_cover: "",
 		uv: "",
 
-		// air_quality: {
-		// 	name: "name"
-		// },
 
 		air_quality: {
 			name:"",
@@ -289,55 +301,65 @@ function doit(){
 						weather.current = value
 						return true;
 					}
+
+
+
 				})
-				.then((value) => {
-					uvApi.get(weather.location.zip)
-						.then((uv) => {
-							(debug) && (console.log("UV: " + uv));
 
-							const time = Ute.zeroPadding(weather.time.hour_12, 2) + " " + weather.time.ampm.toUpperCase()
-							let now = uv.find(hour => hour.DATE_TIME.includes(time));
-							return now;
-						})
-						.then((now) => {
-							weather.current.uv = now.UV_VALUE;
-						});
-					airApi.get(weather.location.zip)
-						.then((air) => {
-							(debug) && (console.log("Air Auality: " + air));
-							let types = [];
-							air.forEach( (item) => {
-								types.push({
-									name: item.ParameterName,
-									aqi: item.AQI,
-									range: item.Category.Number,
-									discription: item.Category.Name
-								});
-							})
 
-							return types;
-						})
-						.then((air) => {
-							air.sort((a, b) => (a.aqi < b.aqi) ? 1 : -1);
-							let airQuality = {}
-							airQuality.name = air[0].name; 
-							airQuality.aqi = air[0].aqi;
-							airQuality.range = air[0].range;
-							airQuality.discription = air[0].discription;
-							airQuality.details = air;
-							
-							return airQuality;
-						})
-						.then((airObj) => {
-							weather.current.air_quality = airObj;
-						});
+			// 
+			// Fetch the UV data
+			// 
+
+			uvApi.get(weather.location.zip)
+				.then((uv) => {
+					(debug) && (console.log("UV: " + uv));
+
+					const time = Ute.zeroPadding(weather.time.hour_12, 2) + " " + weather.time.ampm.toUpperCase()
+					let now = uv.find(hour => hour.DATE_TIME.includes(time));
+					return now;
+				})
+				.then((now) => {
+					weather.current.uv = now.UV_VALUE;
 				});
 
-			// Current.get(Gridpoints.radarStation)
-			// 	.then((value) => {
-			// 		(debug) && (console.log("Current: " + value));
-			// 		weather.current = value
-			// 	});
+
+
+			// 
+			// Fetch the Air Quality data
+			// 
+
+			airApi.get(weather.location.zip)
+				.then((air) => {
+					(debug) && (console.log("Air Quality: " + air));
+					let types = [];
+					air.forEach( (item) => {
+						types.push({
+							name: item.ParameterName,
+							aqi: item.AQI,
+							range: item.Category.Number,
+							discription: item.Category.Name
+						});
+					})
+
+					return types;
+				})
+				.then((air) => {
+					air.sort((a, b) => (a.aqi < b.aqi) ? 1 : -1);
+
+					return { 
+						name: air[0].name,
+						aqi: air[0].aqi,
+						range: air[0].range,
+						discription: air[0].discription,
+						details: air
+					}
+
+				})
+				.then((airObj) => {
+					weather.current.air_quality = airObj;
+				});
+
 
 			// Removes the loading class once the data has been added
 			document.getElementById("app").classList.remove("loading");
@@ -379,9 +401,6 @@ function updateTime() {
 
 // const updateWeather = () => {
 // }
-
-
-
 
 /* VUE DATA BINDING */
 Vue.config.productionTip = false;
