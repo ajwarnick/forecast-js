@@ -92,14 +92,11 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 ```json
 {
   "location": {
-    "zip": "",
-    "coord": {
-      "lat": "",
-      "lon": ""
-    },
-    "city": "",
-    "name": "",
-    "state": ""
+    "zip": "90210",
+    "coord": { "lat": "34.095082673097856", "lon": "-118.39932247264568" },
+    "city": "Beverly Hills",
+    "name": "Beverly Hills",
+    "state": "CA"
   }
 }
 ```
@@ -109,23 +106,22 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 ```json
 {
   "time": {
-    "day": "",
-    "date": "",
-    "hour_24": "",
-    "hour_12": "",
-    "minute": "",
-    "seconds": "",
-    "ampm": "",
-    "moom": {
-      "name": "",
-      "class": ""
-    },
-    "timezone": ""
+    "day": "WED",
+    "date": "2021-10-06",
+    "hour_24": "08",
+    "hour_12": 8,
+    "minute": "45",
+    "seconds": "52",
+    "ampm": "am",
+    "moom": { "class": "new-moon", "name": "New Moon" },
+    "timezone": "America/Los_Angeles"
   }
 }
 ```
 
 #### Alerts
+
+Alerts has two parts a boolean called alerts that is `true` if alerts exits and `false` if they don't.
 
 ```json
 {
@@ -137,13 +133,125 @@ This is based on the Zip Code entered in the input or retrieved from a browser c
 #### Current
 
 ```json
-{}
+{
+  "sunrise": {
+    "hour": 8,
+    "minute": "51",
+    "seconds": "50",
+    "ampm": "am",
+    "time": "8:51"
+  },
+  "sunset": {
+    "hour": 8,
+    "minute": "31",
+    "seconds": "28",
+    "ampm": "pm",
+    "time": "8:31"
+  },
+  "description_main": "Cloudy",
+  "icon": "bkn",
+  "temp": {
+    "current": 64,
+    "feelslike": 64,
+    "heatIndex": 32,
+    "windChill": 32,
+    "unit": "F"
+  },
+  "wind": {
+    "speed": 0,
+    "gust": 0,
+    "unit": "mph",
+    "angle": 0,
+    "direction": "N"
+  },
+  "precipitation": {
+    "lasthour": 0,
+    "threehours": 0,
+    "sixhours": 0,
+    "unit": "in"
+  },
+  "dewpoint": 59,
+  "pressure": { "seaLevel": "408.10", "barometric": "408.10", "unit": "in" },
+  "visibility": 9,
+  "visibilityUnit": "mi",
+  "humidity": 84,
+  "air_quality": {
+    "name": "PM2.5",
+    "aqi": 51,
+    "range": 2,
+    "discription": "Moderate",
+    "details": [
+      { "name": "PM2.5", "aqi": 51, "range": 2, "discription": "Moderate" },
+      { "name": "O3", "aqi": 31, "range": 1, "discription": "Good" }
+    ]
+  },
+  "uv": 0
+}
 ```
 
 #### Hourly
 
+Hourly is an array with the next 12 hours.
+
 ```json
-{}
+{
+  "hourly": [
+    {
+      "day": 6,
+      "month": 10,
+      "year": 2021,
+      "moon": { "class": "new-moon", "name": "New Moon" },
+      "time": 9,
+      "time24": 9,
+      "ampm": "am",
+      "number": 1,
+      "startTime": "2021-10-06T07:00:00-07:00",
+      "endTime": "2021-10-06T08:00:00-07:00",
+      "isDaytime": true,
+      "shortForecast": "Patchy Fog",
+      "detailedForecast": "",
+      "icon": "fog",
+      "windSpeed": "5 mph",
+      "windDirection": "SE",
+      "temperature": 60,
+      "temperatureUnit": "F",
+      "temperatureTrend": null
+    }
+  ]
+}
+```
+
+#### Forecast
+
+Forecast is an array with the next seven days.
+
+```json
+{
+  "forecast": [
+    {
+      "icon": "bkn",
+      "day": 6,
+      "month": 10,
+      "year": 2021,
+      "weekday": "Today",
+      "moon": { "class": "new-moon", "name": "New Moon" },
+      "SNRS": "2021-10-06T13:50:58.152Z",
+      "sunrise": "8:50",
+      "SNST": "2021-10-06T01:32:36.770Z",
+      "sunset": "8:32",
+      "max_temp": 76,
+      "temperatureUnit": "F",
+      "min_temp": 59,
+      "weather": {
+        "description": "Patchy Fog then Partly Sunny",
+        "description_long": "Patchy fog before 11am. Partly sunny, with a high near 76. South wind 5 to 10 mph."
+      },
+      "wind_spd": "5 to 10 mph",
+      "wind_cdir": "S",
+      "wind": { "speed": "5 to 10 mph", "direction": "S" }
+    }
+  ]
+}
 ```
 
 #### Icons
