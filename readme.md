@@ -258,15 +258,15 @@ Forecast is an array with the next seven days.
 
 | Icon                                                                                                         | Code         | Description                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------- |
-| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/01d.png)        | skc          | Clear Sky                    |
-| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/02d.png)       | few          | Few Clouds                   |
-| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/03d.png) | sct          | Scattered Clouds             |
-| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/04d.png)    | bkn          | Broken Clouds                |
-| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/09d.png)      | rain_showers | Rain Showers                 |
-| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/10d.png)             | rain         | Rain                         |
-| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/11d.png)     | tsra         | Thunderstorm                 |
-| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/13d.png)             | snow         | Snow                         |
-| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART300_weather_base/master/img/50d.png)             | fog          | Fog, Haze, <br />Smoke, Dust |
+| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/skc.png)        | skc          | Clear Sky                    |
+| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/few.png)       | few          | Few Clouds                   |
+| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/sct.png) | sct          | Scattered Clouds             |
+| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/bkn.png)    | bkn          | Broken Clouds                |
+| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/rain_showers.png)      | rain_showers | Rain Showers                 |
+| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/rain.png)             | rain         | Rain                         |
+| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/tsra.png)     | tsra         | Thunderstorm                 |
+| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/snow.png)             | snow         | Snow                         |
+| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/fog.png)             | fog          | Fog, Haze, <br />Smoke, Dust |
 
 ##### Complex Icons
 
