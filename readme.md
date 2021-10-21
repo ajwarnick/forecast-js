@@ -346,6 +346,9 @@ Forecast is an array with the next seven days.
 
 ###### [Forecast](https://codesandbox.io/s/forecast-js-temp-v201-8bts7)
 
+###### [7 Day Forecast](https://glitch.com/edit/#!/harmless-lavish-cub?path=index.html%3A1%3A0) By [lexterror](https://github.com/lexterror)
+
+
 ## Changelog
 
 #### [2.3.3] - 2021-10-06
