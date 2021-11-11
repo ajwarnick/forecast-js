@@ -2,6 +2,10 @@ import { Moon } from "./moon.mjs";
 import { icon } from "./icons.mjs";
 import { getSunrise, getSunset } from "./sun.mjs";
 
+const getDaySlug = (d) => {
+  return ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"][ d ];
+}
+
 const Weekly = {
   test: "test",
   loaded: false
@@ -30,6 +34,8 @@ Weekly.getURL = (url) => {
     });
 };
 
+
+
 Weekly.makeForecast = (days,geo) => {
   let toReturn = [];
 
@@ -49,6 +55,7 @@ Weekly.makeForecast = (days,geo) => {
     day.month = date.getMonth() + 1;
     day.year = date.getFullYear();
     day.weekday = item.name;
+    day.dayslug = getDaySlug(date.getDay());
 
     day.moon = Moon.simple(day.year, day.month, day.day);
     
