@@ -14,7 +14,7 @@ import { uvApi } from "./modules/uv.mjs";
 import { airApi } from "./modules/air.mjs";
 
 /* VUE GETS BUDLED IN */
-import Vue from '../node_modules/vue/dist/vue.esm.browser.min.js';
+import Vue from '../node_modules/vue/dist/vue.esm.browser.js';
 
 
 /* DEBUG SETTING */
@@ -118,9 +118,11 @@ let weather = {
 			}]
 		},
 
-		parcipitation: {
-			rain: "",
-			snow: "",
+		precipitation: { 
+			lasthour: "", 
+			threehours: "", 
+			sixhours: "", 
+			unit: "in" 
 		},
 
 		sunrise: "",
@@ -403,35 +405,37 @@ function updateTime() {
 // }
 
 /* VUE DATA BINDING */
-Vue.config.productionTip = false;
-Vue.config.devtools=false;
 
-var vm = new Vue({
-	el: '#app',
-	data: weather,
-	methods: {
-		zip_trigger: function (el){
+window.onload = function () {
 
-            if( Zip.zipTest(el.target.value) ){
-                document.getElementById('zip').blur();
-				zip = Zip.zipTest(el.target.value);
-				weather.time.timezone = Zip.timezone( zip );
-				Cookies.set('zip', zip);
+	Vue.config.productionTip = false;
+	Vue.config.devtools=false;
+
+	var vm = new Vue({
+		el: '#app',
+		data: weather,
+		methods: {
+			zip_trigger: function (el){
+
+				if( Zip.zipTest(el.target.value) ){
+					document.getElementById('zip').blur();
+					zip = Zip.zipTest(el.target.value);
+					weather.time.timezone = Zip.timezone( zip );
+					Cookies.set('zip', zip);
+					
+					document.getElementById("app").classList.add("loading");
+					doit();
+				}
 				
-				document.getElementById("app").classList.add("loading");
-				doit();
-            }
-			
-		},
-		closeParent: function (el){
-			// console.log(el);
-			el.target.parentNode.remove();
+			},
+			closeParent: function (el){
+				// console.log(el);
+				el.target.parentNode.remove();
+			}
 		}
-	}
-})
+	})
 
-
-
+}
 
 /* MAPSTUFF FOR FUTURE */
 

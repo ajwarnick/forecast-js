@@ -1,12 +1,13 @@
 {
   "name": "@warnick/forecast-js",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Weather data using vue.js",
   "repository": "https://github.com/ajwarnick/forecast-js",
   "main": "js/forecast.js",
   "module": "mjs/forecast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "esbuild": "./node_modules/.bin/esbuild  mjs/forecast.mjs --bundle --minify --sourcemap --outfile=alt/forecast.min.js",
     "dev": "npx serve",
     "watch": "sass --watch scss/forecast.scss dist/css/forecast.css",
     "scss": "sass scss/forecast.scss dist/css/forecast.css",
@@ -28,6 +29,7 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
+    "esbuild": "^0.13.6",
     "sunrise-sunset-js": "^2.2.1"
   }
 }

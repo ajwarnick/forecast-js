@@ -256,17 +256,17 @@ Forecast is an array with the next seven days.
 
 #### Icons
 
-| Icon                                                                                                         | Code         | Description                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------- |
-| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/skc.png)        | skc          | Clear Sky                    |
-| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/few.png)       | few          | Few Clouds                   |
-| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/sct.png) | sct          | Scattered Clouds             |
-| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/bkn.png)    | bkn          | Broken Clouds                |
-| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/rain_showers.png)      | rain_showers | Rain Showers                 |
-| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/rain.png)             | rain         | Rain                         |
-| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/tsra.png)     | tsra         | Thunderstorm                 |
-| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/snow.png)             | snow         | Snow                         |
-| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/fog.png)             | fog          | Fog, Haze, <br />Smoke, Dust |
+| Icon                                                                                                               | Code         | Description                  |
+| ------------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------- |
+| ![clear sky icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/skc.png)            | skc          | Clear Sky                    |
+| ![few clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/few.png)           | few          | Few Clouds                   |
+| ![scattered clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/sct.png)     | sct          | Scattered Clouds             |
+| ![broken clouds icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/bkn.png)        | bkn          | Broken Clouds                |
+| ![shower rain icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/rain_showers.png) | rain_showers | Rain Showers                 |
+| ![rain icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/rain.png)                | rain         | Rain                         |
+| ![thunderstorm icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/tsra.png)        | tsra         | Thunderstorm                 |
+| ![snow icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/snow.png)                | snow         | Snow                         |
+| ![mist icon](https://raw.githubusercontent.com/ajwarnick/ART390_Weather_Demo/master/icons/fog.png)                 | fog          | Fog, Haze, <br />Smoke, Dust |
 
 ##### Complex Icons
 
@@ -348,8 +348,17 @@ Forecast is an array with the next seven days.
 
 ###### [7 Day Forecast](https://glitch.com/edit/#!/harmless-lavish-cub?path=index.html%3A1%3A0) By [lexterror](https://github.com/lexterror)
 
-
 ## Changelog
+
+#### [2.3.4] - 2021-11-16
+
+##### Added
+
+Current precipitation
+
+##### Removed
+
+Current rain and snow
 
 #### [2.3.3] - 2021-10-06
 

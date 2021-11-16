@@ -107,12 +107,6 @@ Current.makeForecast = (weather, geo) => {
     direction: Ute.degToCardinal(weather.windDirection.value)
   }
 
-  // OLD
-  // c.rain
-  // c.snow
-  // precipitationLastHour: Object
-  // precipitationLast3Hours: Object
-  // precipitationLast6Hours: Object
   // NOW
   c.precipitation = {
     lasthour: Ute.metersToInches(weather.precipitationLastHour.value),
