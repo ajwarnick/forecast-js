@@ -1,6 +1,6 @@
 {
   "name": "@warnick/forecast-js",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "Weather data using vue.js",
   "repository": "https://github.com/ajwarnick/forecast-js",
   "main": "js/forecast.js",

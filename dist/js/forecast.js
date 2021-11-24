@@ -55234,6 +55234,9 @@
   let weather = {
   	error: "",
 
+  	cookie: {
+  	},
+
   	location: {
   		zip: "",
   		coord: {
@@ -55577,7 +55580,14 @@
   	weather.time.date =  Ute.zeroPadding(cd.getFullYear(), 4) + '-' + Ute.zeroPadding(cd.getMonth()+1, 2) + '-' + Ute.zeroPadding(cd.getDate(), 2);
   	weather.time.moom = Moon.simple( Ute.zeroPadding(cd.getFullYear(), 4), Ute.zeroPadding(cd.getMonth()+1, 2), Ute.zeroPadding(cd.getDate(), 2) );
   }
+  // Cookies
+  setInterval(getCookies, 1000);
+  getCookies();
 
+  function getCookies() {
+  	let cookies = r.get();
+  	weather.cookie = cookies;
+  }
 
 
   // const updateWeather = () => {

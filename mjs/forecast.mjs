@@ -42,6 +42,9 @@ let zip;
 let weather = {
 	error: "",
 
+	cookie: {
+	},
+
 	location: {
 		zip: "",
 		coord: {
@@ -398,7 +401,14 @@ function updateTime() {
 	weather.time.moom = Moon.simple( Ute.zeroPadding(cd.getFullYear(), 4), Ute.zeroPadding(cd.getMonth()+1, 2), Ute.zeroPadding(cd.getDate(), 2) );
 };
 
+// Cookies
+var cookieTimer = setInterval(getCookies, 1000);
+getCookies();
 
+function getCookies() {
+	let cookies = Cookies.get();
+	weather.cookie = cookies;
+}
 
 
 // const updateWeather = () => {
