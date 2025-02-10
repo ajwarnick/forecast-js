@@ -29,7 +29,7 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "esbuild": "^0.13.6",
+    "esbuild": "^0.25.0",
     "sunrise-sunset-js": "^2.2.1"
   }
 }
